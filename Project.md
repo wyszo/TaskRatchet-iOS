@@ -27,6 +27,13 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- Creating a sample SwiftUI project with a preview
 
 - Coding: putting it all together
+	- setup/intro/login screen: userID + API token
+	- fetching and displaying a list of tasks
+	- tapping on one navigates to task details
+	- completing a task
+	- filtering main tasks list: pending/complete/expired / not completed / due today 
+	- editing a task
+	- profile info
 
 ## Landscape
 - A wiki-style webpage for TaskRatched linking useful resources
