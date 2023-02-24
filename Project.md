@@ -4,7 +4,7 @@
 
 Implement an Open Source client for Task Ratchet using modern iOS techniques (TCA, SwiftUI).
 
-TaskRatchet is a system to assign financial (negative) consequence to missing deadlines you set to yourself. The idea is that a deadline without consequences is not binding (thus not motivating enough). In other words: this is a tool that allows you to add consequences to arbitrary deadlines, so you can take control of your projects (and by extension: your life). 
+TaskRatchet (https://taskratchet.com/) is a system to assign financial (negative) consequence to missing deadlines you set to yourself. The idea is that a deadline without consequences is not binding (thus not motivating enough). In other words: this is a tool that allows you to add consequences to arbitrary deadlines, so you can take control of your projects (and by extension: your life). 
 
 For making meeting deadlines a little bit more pleasant (and feel less like a grind), I recommend attaching a negative consequence to not fulfilling a task (that's sorted by using TaskRatchet) but also a postive one (reward) if the deadline is met. Something you wouldn't do otherwise that's pleasant for you (like: treat yourself with something nice - my example would be a cheap PlayStation1 second hand video game, I wouldn't buy otherwise).  
 
@@ -21,8 +21,9 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 		#done Create a Postman (or alternative tool) Collection docummenting & testing that API
 
 - Prepping for coding
-	- Putting the UX mock together (using draw.io)
-	- Putting the API mock together (static json files)
+	- Put a UX mock together (using draw.io)
+	- Put an API mock together (static json files; started)
+	- Put the repo on GitHub
 	- Wiring TCA library
 	- Creating a sample SwiftUI project with a preview
 
@@ -34,6 +35,7 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- filtering main tasks list: pending/complete/expired / not completed / due today 
 	- editing a task
 	- profile info
+	- local notifications: reminders + notifications settings (on/off, minutes before)
 
 ## Landscape
 - A wiki-style webpage for TaskRatched linking useful resources
@@ -81,11 +83,31 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- Arc (arc.net) from The Browser Company is actually recommended for people who try to focus (but IDK why just yet).
 	 - It's heavily focused on keyboard shortcuts, doesn't require further UI.
 
+## Simple UX wireframing tools
+- Mockplus 
+	- https://www.mockplus.com/free-wireframing-tool/
+	- not just for mobile mockups, but for rapid wireframing/prototyping in general
+	- free (has a paid version)
+	- has great mobile compontents template
+- Draw.io
+	- web-based
+	- not focused on mobile prototyping, but rather overall diagraming
+	- easy to put together something rudimentary
+	- free
+- Balsamiq Wireframes
+	- https://balsamiq.com/wireframes/
+	- paid, 30 day trial (I think I have a paid version?)
+	- flash :/
+- wireframe.cc
+	- made for quick wireframing without being bogged down with too much details
+	- easy to use
+	- free and paid version. Free makes your work public.
+
 ## Process and tooling ideas
 - Tools/processes to help with programming
 	- Using GitHub copilot
 	- Pair-programming 
 
 ## Changelog 
-- 2023.02.24: Added Api spec and Static mock json files. Tested the API responses. Created a hoppscotch API testing collection.
+- 2023.02.24: Added Api spec and Static mock json files. Tested the API responses. Created a hoppscotch API testing collection. Added simple UX wireframes.
 - 2023.02.23: Writing down the Project.md structure with a basic tasks breakdown. Researching about the current state of the project and current landscape around it.
