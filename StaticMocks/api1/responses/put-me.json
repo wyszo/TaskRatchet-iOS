@@ -1,0 +1,15 @@
+{
+    "id": "Zu0qDVncIgSuUbQfr261",
+    "name": "Jon Doe Updated",
+    "email": "jon.updated@doe.com",
+    "timezone": "America/New_York",
+    "cards": [],
+    "integrations":
+    {
+        "beeminder":
+        {
+            "user": "jondoe.updated",
+            "goal_new_tasks": "tr_tasks"
+        }
+    }
+}

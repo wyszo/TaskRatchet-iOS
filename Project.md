@@ -1,4 +1,3 @@
-
 # Task Ratchet iOS Project
 
 ## Goal
@@ -13,7 +12,8 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 
 - Researching background 
 	- Research existing Alternatives
-		- Check online if there are any alternative iOS apps being developped
+		- #done Check online if there are any alternative iOS apps being developped
+			- Result: nope, no direct alternatives using TaskRatchet. There might be some for different tools (like StikK for example), but not TaskRatchet.
 			- #done Google 
 			- #done GitHub
 			- #done Search GitHub: TaskRatchet
@@ -21,9 +21,9 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 			- #done Search the Beeminder forums: TaskRatchet
 			- #done Search Twitter: TaskRatchet
 	- Playing with the tool a bit more to understand it a bit better 
-	- Playing with their Python API tool to see how it works better
-	- Research Task Ratchet API
-		- Write down Task Ratchet API spec (that's currently up) and brief documentation
+	#task Playing with their Python API tool to see how it works better
+	#task Research Task Ratchet API
+		- #done Write down Task Ratchet API spec (that's currently up) and brief documentation
 		- Create a Postman Collection docummenting & testing that API
 		- I could most likely use their Python API tool to do it
 
@@ -86,4 +86,5 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- Pair-programming 
 
 ## Changelog 
+- 2023.02.24: Added Api spec and Static mock json files.
 - 2023.02.23: Writing down the Project.md structure with a basic tasks breakdown. Researching about the current state of the project and current landscape around it.
