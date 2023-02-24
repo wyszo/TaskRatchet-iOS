@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Testing",
+    "variables": [
+      {
+        "key": "userID",
+        "value": ""
+      },
+      {
+        "key": "token",
+        "value": ""
+      },
+      {
+        "key": "baseURL",
+        "value": "https://api.taskratchet.com/api1"
+      }
+    ]
+  }
+]

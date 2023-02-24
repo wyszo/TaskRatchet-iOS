@@ -1,0 +1,289 @@
+[
+  {
+    "v": 1,
+    "name": "TaskRabbit",
+    "folders": [
+      {
+        "v": 1,
+        "name": "Unauthenticated",
+        "folders": [],
+        "requests": [
+          {
+            "v": "1",
+            "endpoint": "<<baseURL>>/status",
+            "name": "GET server status",
+            "params": [],
+            "headers": [],
+            "method": "GET",
+            "auth": {
+              "authType": "none",
+              "authActive": true,
+              "addTo": "Headers",
+              "key": "",
+              "value": ""
+            },
+            "preRequestScript": "",
+            "testScript": "",
+            "body": {
+              "contentType": null,
+              "body": null
+            }
+          },
+          {
+            "v": "1",
+            "endpoint": "<<baseURL>>/timezones",
+            "name": "GET timezones",
+            "params": [],
+            "headers": [],
+            "method": "GET",
+            "auth": {
+              "authType": "none",
+              "authActive": true,
+              "addTo": "Headers",
+              "key": "",
+              "value": ""
+            },
+            "preRequestScript": "",
+            "testScript": "",
+            "body": {
+              "contentType": null,
+              "body": null
+            }
+          }
+        ]
+      },
+      {
+        "v": 1,
+        "name": "Authenticated",
+        "folders": [],
+        "requests": [
+          {
+            "v": "1",
+            "endpoint": "<<baseURL>>/me/tasks",
+            "name": "GET all tasks",
+            "params": [],
+            "headers": [
+              {
+                "key": "X-Taskratchet-Userid",
+                "value": "<<userID>>",
+                "active": true
+              },
+              {
+                "key": "X-Taskratchet-Token",
+                "value": "<<token>>",
+                "active": true
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "authType": "none",
+              "authActive": true,
+              "addTo": "Headers",
+              "key": "",
+              "value": ""
+            },
+            "preRequestScript": "",
+            "testScript": "",
+            "body": {
+              "contentType": "application/json",
+              "body": ""
+            }
+          },
+          {
+            "v": "1",
+            "endpoint": "<<baseURL>>/me",
+            "name": "GET profile",
+            "params": [],
+            "headers": [
+              {
+                "key": "X-Taskratchet-Userid",
+                "value": "<<userID>>",
+                "active": true
+              },
+              {
+                "key": "X-Taskratchet-Token",
+                "value": "<<token>>",
+                "active": true
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "authType": "none",
+              "authActive": true,
+              "addTo": "Headers",
+              "key": "",
+              "value": ""
+            },
+            "preRequestScript": "",
+            "testScript": "",
+            "body": {
+              "contentType": "application/json",
+              "body": ""
+            }
+          },
+          {
+            "v": "1",
+            "endpoint": "<<baseURL>>/me/tasks",
+            "name": "POST create a new task",
+            "params": [],
+            "headers": [
+              {
+                "key": "X-Taskratchet-Userid",
+                "value": "<<userID>>",
+                "active": true
+              },
+              {
+                "key": "X-Taskratchet-Token",
+                "value": "<<token>>",
+                "active": true
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "authType": "none",
+              "authActive": true,
+              "addTo": "Headers",
+              "key": "",
+              "value": ""
+            },
+            "preRequestScript": "",
+            "testScript": "",
+            "body": {
+              "contentType": "application/json",
+              "body": "{\n\t\"task\": \"New task - API testing\",\n  \t\"due\": \"5/25/2030, 11:59 PM\",\n  \t\"cents\": 500\n}"
+            }
+          },
+          {
+            "v": "1",
+            "endpoint": "<<baseURL>>/me/tasks/{task_id}",
+            "name": "PUT update task",
+            "params": [],
+            "headers": [
+              {
+                "key": "X-Taskratchet-Userid",
+                "value": "<<userID>>",
+                "active": true
+              },
+              {
+                "key": "X-Taskratchet-Token",
+                "value": "<<token>>",
+                "active": true
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "authType": "none",
+              "authActive": true,
+              "addTo": "Headers",
+              "key": "",
+              "value": ""
+            },
+            "preRequestScript": "",
+            "testScript": "",
+            "body": {
+              "contentType": "application/json",
+              "body": "{\n  \t\"due\": \"2/2/2029, 11:59 PM\",\n  \t\"cents\": 1000\n}"
+            }
+          },
+          {
+            "v": "1",
+            "endpoint": "<<baseURL>>/me/tasks/{task_id}",
+            "name": "GET single task info",
+            "params": [],
+            "headers": [
+              {
+                "key": "X-Taskratchet-Userid",
+                "value": "<<userID>>",
+                "active": true
+              },
+              {
+                "key": "X-Taskratchet-Token",
+                "value": "<<token>>",
+                "active": true
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "authType": "none",
+              "authActive": true,
+              "addTo": "Headers",
+              "key": "",
+              "value": ""
+            },
+            "preRequestScript": "",
+            "testScript": "",
+            "body": {
+              "contentType": "application/json",
+              "body": ""
+            }
+          },
+          {
+            "v": "1",
+            "endpoint": "<<baseURL>>/me",
+            "name": "PUT update profile",
+            "params": [],
+            "headers": [
+              {
+                "key": "X-Taskratchet-Userid",
+                "value": "<<userID>>",
+                "active": true
+              },
+              {
+                "key": "X-Taskratchet-Token",
+                "value": "<<token>>",
+                "active": true
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "authType": "none",
+              "authActive": true,
+              "addTo": "Headers",
+              "key": "",
+              "value": ""
+            },
+            "preRequestScript": "",
+            "testScript": "",
+            "body": {
+              "contentType": "application/json",
+              "body": "{\n  \t\"name\": \"Updated name\"\n}"
+            }
+          },
+          {
+            "v": "1",
+            "endpoint": "<<baseURL>>/me/tasks/{task_id}",
+            "name": "PUT update task: mark completed",
+            "params": [],
+            "headers": [
+              {
+                "key": "X-Taskratchet-Userid",
+                "value": "<<userID>>",
+                "active": true
+              },
+              {
+                "key": "X-Taskratchet-Token",
+                "value": "<<token>>",
+                "active": true
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "authType": "none",
+              "authActive": true,
+              "addTo": "Headers",
+              "key": "",
+              "value": ""
+            },
+            "preRequestScript": "",
+            "testScript": "",
+            "body": {
+              "contentType": "application/json",
+              "body": "{\n  \t\"complete\": true\n}"
+            }
+          }
+        ]
+      }
+    ],
+    "requests": []
+  }
+]

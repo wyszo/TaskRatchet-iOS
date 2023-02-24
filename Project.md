@@ -18,7 +18,7 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	#done Playing with their Python API tool to see how it works and understand it beter (create a new task and update it, execute all the other erequests)
 	#task Research Task Ratchet API
 		#done Write down Task Ratchet API spec (that's currently up) and brief documentation
-		#task-optional Create a Postman Collection docummenting & testing that API
+		#done Create a Postman (or alternative tool) Collection docummenting & testing that API
 
 - Prepping for coding
 	- Putting the UX mock together (using draw.io)
@@ -53,6 +53,7 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 		- There are also rooms where people can see your goals you're working on and work using pomodoros.
 		- In a way that's similar to Beeminder (but more user-friendly).
 		- It also makes you review your previous day against the intentions that have been set. Which is great!
+		- It allows you to assign pomodoros to tasks to check/visualise how long they took.
 	  #done Try Complice out
 	   - StickK: Allows to create commitment contracts and put money on the line to ensure completion. 
 		#task Try StickK
@@ -79,5 +80,5 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- Pair-programming 
 
 ## Changelog 
-- 2023.02.24: Added Api spec and Static mock json files. Tested the API responses.
+- 2023.02.24: Added Api spec and Static mock json files. Tested the API responses. Created a hoppscotch API testing collection.
 - 2023.02.23: Writing down the Project.md structure with a basic tasks breakdown. Researching about the current state of the project and current landscape around it.
