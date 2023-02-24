@@ -83,6 +83,14 @@
 }
 ```
 
+#### PUT me/tasks/{task_id}
+- Updates a task (any fields can be send).
+- Some operations will fail:
+	- Editing task title is forbidden (`task` field)
+	- Chanding due date to the future is forbidden.
+- Currently the web app sends the `OPTIONS` (`PUT`) request first with an empty body, gets `204 no content` response and follows it with the `PUT` request containing updated fields in the body. This is probably not required.
+- Note that this endpoint cannot be used to create a new task (the response will be `403`).
+
 #### GET status
 - Returns server status, currently just the API internal time
 - Example response:

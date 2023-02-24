@@ -11,21 +11,14 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 ## Roadmap & tasks breakdown
 
 - Researching background 
-	- Research existing Alternatives
-		- #done Check online if there are any alternative iOS apps being developped
-			- Result: nope, no direct alternatives using TaskRatchet. There might be some for different tools (like StikK for example), but not TaskRatchet.
-			- #done Google 
-			- #done GitHub
-			- #done Search GitHub: TaskRatchet
-			- #done YouTube
-			- #done Search the Beeminder forums: TaskRatchet
-			- #done Search Twitter: TaskRatchet
-	- Playing with the tool a bit more to understand it a bit better 
-	#task Playing with their Python API tool to see how it works better
+	#done Research existing Alternatives
+		#done Check online if there are any alternative iOS apps being developped
+				- Result: nope, no direct alternatives using TaskRatchet. There might be some for different tools (like StikK for example), but not TaskRatchet.
+		#done Checked: Google, GitHub, Search GitHub: TaskRatchet, YouTube, Search Beeminder forums: TaskRatchet, Search Twitter: TaskRatchet
+	#done Playing with their Python API tool to see how it works and understand it beter (create a new task and update it, execute all the other erequests)
 	#task Research Task Ratchet API
-		- #done Write down Task Ratchet API spec (that's currently up) and brief documentation
-		- Create a Postman Collection docummenting & testing that API
-		- I could most likely use their Python API tool to do it
+		#done Write down Task Ratchet API spec (that's currently up) and brief documentation
+		#task-optional Create a Postman Collection docummenting & testing that API
 
 - Prepping for coding
 	- Putting the UX mock together (using draw.io)
@@ -86,5 +79,5 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- Pair-programming 
 
 ## Changelog 
-- 2023.02.24: Added Api spec and Static mock json files.
+- 2023.02.24: Added Api spec and Static mock json files. Tested the API responses.
 - 2023.02.23: Writing down the Project.md structure with a basic tasks breakdown. Researching about the current state of the project and current landscape around it.

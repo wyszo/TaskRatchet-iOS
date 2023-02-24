@@ -4,7 +4,12 @@
     "email": "jon@doe.com",
     "timezone": "America/New_York",
     "cards":
-    [],
+    [
+        {
+            "brand": "mastercard",
+            "last4": "1234"
+        }
+    ],
     "integrations":
     {
         "beeminder":
