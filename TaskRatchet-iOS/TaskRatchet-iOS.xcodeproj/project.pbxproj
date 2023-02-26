@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D2EAF0F929AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */; };
-		D2EAF0FB29AB9BFF00E7CADC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0FA29AB9BFF00E7CADC /* ContentView.swift */; };
+		D2EAF0FB29AB9BFF00E7CADC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */; };
 		D2EAF0FD29AB9C0000E7CADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EAF0FC29AB9C0000E7CADC /* Assets.xcassets */; };
 		D2EAF10129AB9C0000E7CADC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EAF10029AB9C0000E7CADC /* Preview Assets.xcassets */; };
 		D2EAF10B29AB9C0000E7CADC /* TaskRatchet_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF10A29AB9C0000E7CADC /* TaskRatchet_iOSTests.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		D2EAF0F529AB9BFF00E7CADC /* TaskRatchet-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskRatchet-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRatchet_iOSApp.swift; sourceTree = "<group>"; };
-		D2EAF0FA29AB9BFF00E7CADC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D2EAF0FC29AB9C0000E7CADC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2EAF0FE29AB9C0000E7CADC /* TaskRatchet_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskRatchet_iOS.entitlements; sourceTree = "<group>"; };
 		D2EAF10029AB9C0000E7CADC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 		D2EAF0F729AB9BFF00E7CADC /* TaskRatchet-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D2EAF12329AB9E1D00E7CADC /* Login */,
 				D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */,
-				D2EAF0FA29AB9BFF00E7CADC /* ContentView.swift */,
 				D2EAF0FC29AB9C0000E7CADC /* Assets.xcassets */,
 				D2EAF0FE29AB9C0000E7CADC /* TaskRatchet_iOS.entitlements */,
 				D2EAF0FF29AB9C0000E7CADC /* Preview Content */,
@@ -127,6 +127,14 @@
 				D2EAF11629AB9C0000E7CADC /* TaskRatchet_iOSUITestsLaunchTests.swift */,
 			);
 			path = "TaskRatchet-iOSUITests";
+			sourceTree = "<group>";
+		};
+		D2EAF12329AB9E1D00E7CADC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2EAF0FB29AB9BFF00E7CADC /* ContentView.swift in Sources */,
+				D2EAF0FB29AB9BFF00E7CADC /* LoginView.swift in Sources */,
 				D2EAF0F929AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
