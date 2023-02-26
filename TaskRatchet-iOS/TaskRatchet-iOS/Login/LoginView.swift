@@ -36,7 +36,7 @@ struct LoginView: View {
                 }
                 HStack {
                     Text("API Token")
-                    TextField("API Token", text: $userID)
+                    TextField("API Token", text: $apiToken)
                 }
             }
             .padding()
