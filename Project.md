@@ -36,6 +36,22 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- editing a task
 	- profile info
 	- local notifications: reminders + notifications settings (on/off, minutes before)
+	- (optional) Main page info screen (with app version + server info + server status)
+
+## Functional requirements
+
+### Login screen
+
+#### MVP
+- Title (Task Ratchet) & Subtitle (Unofficial mobile client)
+- Info text underneath (no clickable elements). For copy see 'Login-MVP.png' file
+- UserID & API Token fields
+- Login button  
+- Login button inactive until both UserID & API Token fileds contain > 1 character
+
+#### Full version
+- Info button (gear icon) showing an alert with app version, server info (URL) and server status (online/offline). GitHub page link underneath.
+- 'Launch TaskRatchet website' button that opens TaskRatchet website in Safari.
 
 ## Landscape
 - A wiki-style webpage for TaskRatched linking useful resources
@@ -63,6 +79,7 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 		- In a way that's similar to Beeminder (but more user-friendly).
 		- It also makes you review your previous day against the intentions that have been set. Which is great!
 		- It allows you to assign pomodoros to tasks to check/visualise how long they took.
+		- I really like that the system shows you achieved project milestones and also makes you come up with the next milestone to reach (and reminds you about it).
 	  #done Try Complice out
 	   - StickK: Allows to create commitment contracts and put money on the line to ensure completion. 
 		#task Try StickK
@@ -89,6 +106,7 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- not just for mobile mockups, but for rapid wireframing/prototyping in general
 	- free (has a paid version)
 	- has great mobile compontents template
+	- has a RP (rapid prototyping) or cloud (dev/designers collab) modes 
 - Draw.io
 	- web-based
 	- not focused on mobile prototyping, but rather overall diagraming
@@ -102,6 +120,12 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- made for quick wireframing without being bogged down with too much details
 	- easy to use
 	- free and paid version. Free makes your work public.
+- Freeform
+	- Built in in Mac OS 
+	- Simple to use, but not focused on Mockups, might be more hassle than added value
+
+## Wireframe tool used
+Currently using Wireframe.cc for generic overview and Mockplus for screen details.
 
 ## Process and tooling ideas
 - Tools/processes to help with programming
@@ -109,5 +133,6 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- Pair-programming 
 
 ## Changelog 
+- 2023.02.26: Extended wireframe mockup. Made login screen wireframes (full & MVP version).
 - 2023.02.24: Added Api spec and Static mock json files. Tested the API responses. Created a hoppscotch API testing collection. Added simple UX wireframes.
 - 2023.02.23: Writing down the Project.md structure with a basic tasks breakdown. Researching about the current state of the project and current landscape around it.
