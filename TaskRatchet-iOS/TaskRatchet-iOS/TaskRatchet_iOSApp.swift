@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct TaskRatchet_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            LoginView(
+                store: Store(
+                    initialState: .init(),
+                    reducer: Login()
+                )
+            )
         }
     }
 }
