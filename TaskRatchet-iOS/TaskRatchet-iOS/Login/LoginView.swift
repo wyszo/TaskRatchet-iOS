@@ -5,9 +5,8 @@
 //  Created by Thomas W. Dev on 26/02/2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
-
+import SwiftUI
 
 struct LoginView: View {
     let store: StoreOf<Login>
@@ -60,13 +59,17 @@ struct LoginView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView(
             store: Store(
                 initialState: .init(),
-                reducer: Login()
+                reducer: Login(loginClient: .mock)
             )
         )
     }
+}
+
+extension LoginClient {
+    static let mock = Self { _, _ in return false }
 }

@@ -12,10 +12,10 @@ import ComposableArchitecture
 struct TaskRatchet_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView(
+            RootView(
                 store: Store(
                     initialState: .init(),
-                    reducer: Login()
+                    reducer: Root(live: true)
                 )
             )
         }

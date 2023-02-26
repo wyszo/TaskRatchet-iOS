@@ -8,6 +8,14 @@
 import Foundation
 import ComposableArchitecture
 
+struct LoginClient {
+    typealias FetchProfileType = (_ userID: String, _ apiToken: String) async -> Bool
+    // TODO: return Profile model
+    // TODO: model errors properly and make it into a throwing call
+    
+    let fetchProfile: FetchProfileType
+}
+
 struct Login: ReducerProtocol {
     let loginClient: LoginClient
 

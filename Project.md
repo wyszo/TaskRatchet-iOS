@@ -40,6 +40,7 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- (optional) analytics
 	- (optional) Main page info screen (with app version + server info + server status)
 	- (optional) logout
+	- (optional) wire linter
 
 ## Functional requirements
 
