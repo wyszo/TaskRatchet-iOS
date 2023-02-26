@@ -45,6 +45,7 @@
 		D2EAF11029AB9C0000E7CADC /* TaskRatchet-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TaskRatchet-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EAF11429AB9C0000E7CADC /* TaskRatchet_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRatchet_iOSUITests.swift; sourceTree = "<group>"; };
 		D2EAF11629AB9C0000E7CADC /* TaskRatchet_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRatchet_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2EAF12529ABA3C300E7CADC /* swift-composable-architecture-main */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-composable-architecture-main"; path = "../../swift-composable-architecture-main"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 		D2EAF0EC29AB9BFF00E7CADC = {
 			isa = PBXGroup;
 			children = (
+				D2EAF12429ABA3C300E7CADC /* Packages */,
 				D2EAF0F729AB9BFF00E7CADC /* TaskRatchet-iOS */,
 				D2EAF10929AB9C0000E7CADC /* TaskRatchet-iOSTests */,
 				D2EAF11329AB9C0000E7CADC /* TaskRatchet-iOSUITests */,
@@ -135,6 +137,14 @@
 				D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D2EAF12429ABA3C300E7CADC /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				D2EAF12529ABA3C300E7CADC /* swift-composable-architecture-main */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
