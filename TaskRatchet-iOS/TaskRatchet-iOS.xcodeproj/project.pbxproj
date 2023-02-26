@@ -15,6 +15,7 @@
 		D2EAF11529AB9C0000E7CADC /* TaskRatchet_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF11429AB9C0000E7CADC /* TaskRatchet_iOSUITests.swift */; };
 		D2EAF11729AB9C0000E7CADC /* TaskRatchet_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF11629AB9C0000E7CADC /* TaskRatchet_iOSUITestsLaunchTests.swift */; };
 		D2EAF12829ABA61D00E7CADC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = D2EAF12729ABA61D00E7CADC /* ComposableArchitecture */; };
+		D2EAF12D29ABC8B900E7CADC /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF12C29ABC8B900E7CADC /* Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D2EAF11029AB9C0000E7CADC /* TaskRatchet-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TaskRatchet-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EAF11429AB9C0000E7CADC /* TaskRatchet_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRatchet_iOSUITests.swift; sourceTree = "<group>"; };
 		D2EAF11629AB9C0000E7CADC /* TaskRatchet_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRatchet_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2EAF12C29ABC8B900E7CADC /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		D2EAF12329AB9E1D00E7CADC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				D2EAF12C29ABC8B900E7CADC /* Login.swift */,
 				D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */,
 			);
 			path = Login;
@@ -277,6 +280,7 @@
 			files = (
 				D2EAF0FB29AB9BFF00E7CADC /* LoginView.swift in Sources */,
 				D2EAF0F929AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift in Sources */,
+				D2EAF12D29ABC8B900E7CADC /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

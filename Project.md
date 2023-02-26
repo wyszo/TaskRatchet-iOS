@@ -36,7 +36,10 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- editing a task
 	- profile info
 	- local notifications: reminders + notifications settings (on/off, minutes before)
+	- safely persisting login information between app launches (keychain?)
+	- (optional) analytics
 	- (optional) Main page info screen (with app version + server info + server status)
+	- (optional) logout
 
 ## Functional requirements
 
