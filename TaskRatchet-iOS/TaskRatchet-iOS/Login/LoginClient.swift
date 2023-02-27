@@ -24,11 +24,12 @@ extension LoginClient {
     static let live = Self { userID, apiToken in
         let (data, response): (Data, URLResponse)
         do {
-            var request = URLRequest(url: API.endpointURLFor(.profile))
-            request.addValue(userID, forHTTPHeaderField: "X-Taskratchet-Userid")
-            request.addValue(apiToken, forHTTPHeaderField: "X-Taskratchet-Token")
-            
-            (data, response) = try await URLSession.shared.data(for: request)
+            (data, response) = try await URLSession.shared.data(
+                for: API.authenticatedRequestFor(.profile,
+                    userID: userID,
+                    apiToken: apiToken
+                )
+            )
         } catch let error {
             print(error)
             if let urlError = error as? URLError {

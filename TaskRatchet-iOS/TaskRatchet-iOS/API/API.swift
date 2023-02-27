@@ -21,4 +21,12 @@ struct API {
         }
         return url
     }
+    
+    static func authenticatedRequestFor(_ endpoint: Endpoint, userID: String, apiToken: String) -> URLRequest {
+        var request = URLRequest(url: API.endpointURLFor(endpoint))
+        request.addValue(userID, forHTTPHeaderField: "X-Taskratchet-Userid")
+        request.addValue(apiToken, forHTTPHeaderField: "X-Taskratchet-Token")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        return request
+    }
 }
