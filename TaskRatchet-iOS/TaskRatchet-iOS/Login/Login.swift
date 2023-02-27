@@ -126,16 +126,16 @@ struct Login: ReducerProtocol {
                 do {
                     profile = try await loginClient.fetchProfile(userID, apiToken)
                 } catch let error {
-                    guard let loginError = error as? LoginError else {
+                    guard let loginError = error as? LoginClientError else {
                         return .networkResponse(.loginFailed)
                     }
                     switch loginError {
-                    case LoginError.noInternet:
+                    case LoginClientError.noInternet:
                         return .networkResponse(.loginFailedNoInternet)
-                    case LoginError.authenticationFailed:
+                    case LoginClientError.authenticationFailed:
                         return .networkResponse(.loginFailedInvalidCredentials)
-                    case LoginError.requestFailed,
-                         LoginError.responseParsingFailed:
+                    case LoginClientError.requestFailed,
+                         LoginClientError.responseParsingFailed:
                         return .networkResponse(.loginFailed)
                     }
                 }

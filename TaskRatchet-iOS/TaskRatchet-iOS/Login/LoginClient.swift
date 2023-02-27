@@ -17,8 +17,7 @@ struct LoginClient {
     let loadCredentials: LoadCredentialsType
 }
 
-// TODO: rename to `LoginClientError`
-enum LoginError: Error {
+enum LoginClientError: Error {
     case requestFailed
     case noInternet
     case authenticationFailed
@@ -46,15 +45,15 @@ extension LoginClient {
                     if [.notConnectedToInternet,
                         .networkConnectionLost
                     ].contains(urlError.code) {
-                        throw LoginError.noInternet
+                        throw LoginClientError.noInternet
                     }
                 }
-                throw LoginError.requestFailed
+                throw LoginClientError.requestFailed
             }
             
             if let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode == 403 {
-                    throw LoginError.authenticationFailed
+                    throw LoginClientError.authenticationFailed
                 }
             }
 
@@ -62,7 +61,7 @@ extension LoginClient {
             do {
                 profile = try JSONDecoder().decode(Profile.self, from: data)
             } catch {
-                throw LoginError.responseParsingFailed
+                throw LoginClientError.responseParsingFailed
             }
             return profile
         },

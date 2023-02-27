@@ -21,15 +21,15 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 		#done Create a Postman (or alternative tool) Collection docummenting & testing that API
 
 - Prepping for coding
-	- Put a UX mock together (using draw.io)
-	- Put an API mock together (static json files; started)
+	- (in progress) Put a UX mock together (using draw.io)
+	- (in progress, mostly done) Put an API mock together (static json files; started)
 	- Put the repo on GitHub
-	- Wiring TCA library
-	- Creating a sample SwiftUI project with a preview
+	- #done Wiring TCA library
+	- #done Creating a sample SwiftUI project with a preview
 
 - Coding: putting it all together
-	- setup/intro/login screen: userID + API token
-	- fetching and displaying a list of tasks
+	- #done setup/intro/login screen: userID + API token
+	- (in progress) fetching and displaying a list of tasks
 	- tapping on one navigates to task details
 	- completing a task
 	- filtering main tasks list: pending/complete/expired / not completed / due today 
@@ -51,7 +51,7 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 - Info text underneath (no clickable elements). For copy see 'Login-MVP.png' file
 - UserID & API Token fields
 - Login button  
-- Login button inactive until both UserID & API Token fileds contain > 1 character
+- (stretch) Login button inactive until both UserID & API Token fileds contain > 1 character
 
 #### Full version
 - Info button (gear icon) showing an alert with app version, server info (URL) and server status (online/offline). GitHub page link underneath.
