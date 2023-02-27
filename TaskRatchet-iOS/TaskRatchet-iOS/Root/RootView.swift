@@ -31,6 +31,10 @@ struct RootView: View {
                         action: Root.Action.login
                     )
                 )
+                .onAppear {
+                    // TODO: get rid of this
+                    viewStore.send(.login(._internal(.viewCreated)))
+                }
             }
         }
     }

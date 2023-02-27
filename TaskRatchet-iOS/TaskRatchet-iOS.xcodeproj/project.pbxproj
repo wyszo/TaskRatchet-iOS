@@ -10,6 +10,7 @@
 		D26267EA29ACC4E6009BFC96 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267E929ACC4E6009BFC96 /* Profile.swift */; };
 		D26267EC29ACC593009BFC96 /* LoginClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267EB29ACC593009BFC96 /* LoginClient.swift */; };
 		D26267EF29ACC8BC009BFC96 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267EE29ACC8BC009BFC96 /* API.swift */; };
+		D26267F229ACF77F009BFC96 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267F129ACF77F009BFC96 /* DataStore.swift */; };
 		D2EAF0F929AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */; };
 		D2EAF0FB29AB9BFF00E7CADC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */; };
 		D2EAF0FD29AB9C0000E7CADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EAF0FC29AB9C0000E7CADC /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		D26267E929ACC4E6009BFC96 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D26267EB29ACC593009BFC96 /* LoginClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginClient.swift; sourceTree = "<group>"; };
 		D26267EE29ACC8BC009BFC96 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D26267F129ACF77F009BFC96 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		D2EAF0F529AB9BFF00E7CADC /* TaskRatchet-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskRatchet-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRatchet_iOSApp.swift; sourceTree = "<group>"; };
 		D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		D26267F029ACF768009BFC96 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D26267F129ACF77F009BFC96 /* DataStore.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		D2EAF0EC29AB9BFF00E7CADC = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 		D2EAF0F729AB9BFF00E7CADC /* TaskRatchet-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D26267F029ACF768009BFC96 /* Persistence */,
 				D26267ED29ACC8B5009BFC96 /* API */,
 				D26267E829ACC4DB009BFC96 /* Model */,
 				D2EAF12929ABC81100E7CADC /* Root */,
@@ -324,6 +335,7 @@
 				D26267EC29ACC593009BFC96 /* LoginClient.swift in Sources */,
 				D2EAF12D29ABC8B900E7CADC /* Login.swift in Sources */,
 				D26267EF29ACC8BC009BFC96 /* API.swift in Sources */,
+				D26267F229ACF77F009BFC96 /* DataStore.swift in Sources */,
 				D2EAF12F29ABCBA100E7CADC /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
