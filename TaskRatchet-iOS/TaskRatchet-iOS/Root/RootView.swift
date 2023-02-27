@@ -14,6 +14,12 @@ struct RootView: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             if viewStore.loggedIn {
+                TaskListView(
+                    store: self.store.scope(
+                        state: \.taskList,
+                        action: Root.Action.taskList
+                    )
+                )
                 NavigationView {
                     // not implemented yet
                     // HomeView/TaskListView

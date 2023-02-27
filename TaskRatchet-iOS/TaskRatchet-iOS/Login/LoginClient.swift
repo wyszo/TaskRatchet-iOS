@@ -17,11 +17,12 @@ struct LoginClient {
     let loadCredentials: LoadCredentialsType
 }
 
+// TODO: rename to `LoginClientError`
 enum LoginError: Error {
     case requestFailed
     case noInternet
     case authenticationFailed
-    case responseParsingFailure
+    case responseParsingFailed
 }
 
 extension LoginClient {
@@ -41,7 +42,6 @@ extension LoginClient {
                     )
                 )
             } catch let error {
-                print(error)
                 if let urlError = error as? URLError {
                     if [.notConnectedToInternet,
                         .networkConnectionLost
@@ -62,7 +62,7 @@ extension LoginClient {
             do {
                 profile = try JSONDecoder().decode(Profile.self, from: data)
             } catch {
-                throw LoginError.responseParsingFailure
+                throw LoginError.responseParsingFailed
             }
             return profile
         },

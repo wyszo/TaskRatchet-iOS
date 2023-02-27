@@ -137,7 +137,7 @@ Currently using Wireframe.cc for generic overview and Mockplus for screen detail
 	- Pair-programming 
 
 ## Changelog 
-- 2023.02.27: Making GET me network request, login alerts handling and credentials persistence. Prepopulating login fields when previous login successful.
+- 2023.02.27: Making GET me network request, login alerts handling and credentials persistence. Prepopulating login fields when previous login successful. Fetching list of all tasks and listing their titles.
 - 2023.02.26: Extended wireframe mockup. Made login screen wireframes (full & MVP version). Exteded `.gitignore` file. Xcode project template added.
 - 2023.02.24: Added Api spec and Static mock json files. Tested the API responses. Created a hoppscotch API testing collection. Added simple UX wireframes.
 - 2023.02.23: Writing down the Project.md structure with a basic tasks breakdown. Researching about the current state of the project and current landscape around it.

@@ -12,6 +12,7 @@ struct API {
     
     enum Endpoint: String {
         case profile = "me"
+        case allTasks = "me/tasks"
     }
     
     static func endpointURLFor(_ endpoint: Endpoint) -> URL {

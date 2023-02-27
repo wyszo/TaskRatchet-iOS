@@ -135,7 +135,7 @@ struct Login: ReducerProtocol {
                     case LoginError.authenticationFailed:
                         return .networkResponse(.loginFailedInvalidCredentials)
                     case LoginError.requestFailed,
-                         LoginError.responseParsingFailure:
+                         LoginError.responseParsingFailed:
                         return .networkResponse(.loginFailed)
                     }
                 }
