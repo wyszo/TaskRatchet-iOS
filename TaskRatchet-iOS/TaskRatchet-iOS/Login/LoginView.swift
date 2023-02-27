@@ -60,7 +60,11 @@ struct LoginView: View {
                 }
                 .padding()
                 
-                Button("Login") { viewStore.send(.ui(.loginPressed)) }
+                VStack(spacing: 5.0) {
+                    ProgressView()
+                        .opacity(viewStore.state.networkIndicator ? 1 : 0)
+                    Button("Login") { viewStore.send(.ui(.loginPressed)) }
+                }
             }
         }
         .padding()

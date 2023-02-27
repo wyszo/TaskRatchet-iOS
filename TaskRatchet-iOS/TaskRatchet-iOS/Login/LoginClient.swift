@@ -24,7 +24,12 @@ extension LoginClient {
     static let live = Self { userID, apiToken in
         let (data, response): (Data, URLResponse)
         do {
-            (data, response) = try await URLSession.shared.data(
+            let config = URLSessionConfiguration.default
+            config.waitsForConnectivity = false
+            config.timeoutIntervalForResource = 10
+            let quickTimeoutSession = URLSession(configuration: config)
+
+            (data, response) = try await quickTimeoutSession.data(
                 for: API.authenticatedRequestFor(.profile,
                     userID: userID,
                     apiToken: apiToken

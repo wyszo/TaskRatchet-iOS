@@ -16,7 +16,10 @@ struct Login: ReducerProtocol {
         var apiToken: String = ""
         var loginRequestInFlight = false
         
-        var alert: AlertState<Action>?
+        var alert: AlertState<Action>? {
+            didSet { networkIndicator = false }
+        }
+        var networkIndicator = false
         var loggedIn = false
     }
 
@@ -51,6 +54,7 @@ struct Login: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .ui(.loginPressed):
+            state.networkIndicator = true
             return Effects.loginPressed(loginClient: loginClient, userID: state.userID, apiToken: state.apiToken)
         case let .ui(.userIdChanged(userID)):
             state.userID = userID
@@ -62,6 +66,7 @@ struct Login: ReducerProtocol {
             state.alert = nil
             return .none
         case let .networkResponse(networkAction):
+            state.networkIndicator = false
             return reduceNetworkResponse(into: &state, networkAction: networkAction)
         case .delegate:
             // intentional, should be handled by a higher level reducer
@@ -76,16 +81,20 @@ struct Login: ReducerProtocol {
         case .loginFailed,
              .loginFailedInvalidCredentials:
             state.alert = AlertState {
-                TextState("Login failed (invalid credentials?)")
+                TextState("Login failed")
             } actions: {
                 ButtonState(role: .cancel) { TextState("OK") }
+            } message: {
+                TextState("Invalid credentials (?)")
             }
             return .none
         case .loginFailedNoInternet:
             state.alert = AlertState {
-                TextState("Login failed. Internet connection appears to be offline.")
+                TextState("Login failed")
             } actions: {
                 ButtonState(role: .cancel) { TextState("OK") }
+            } message: {
+                TextState("Internet connection appears to be offline")
             }
             return .none
         }
