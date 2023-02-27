@@ -15,6 +15,8 @@ struct Login: ReducerProtocol {
         var userID: String = ""
         var apiToken: String = ""
         var loginRequestInFlight = false
+        
+        var alert: AlertState<Action>?
         var loggedIn = false
     }
 
@@ -23,12 +25,19 @@ struct Login: ReducerProtocol {
             case loginPressed
             case userIdChanged(String)
             case apiTokenChanged(String)
+            
+            enum AlertAction: Equatable {
+               case dismissed
+            }
+            case alert(AlertAction)
         }
         case ui(UIAction)
         
         enum NetworkResponse: Equatable {
             case login(Profile)
-            case loginAttemptFailed
+            case loginFailed
+            case loginFailedInvalidCredentials
+            case loginFailedNoInternet
         }
         case networkResponse(NetworkResponse)
         
@@ -49,27 +58,58 @@ struct Login: ReducerProtocol {
         case let .ui(.apiTokenChanged(token)):
             state.apiToken = token
             return .none
-        case .networkResponse(.login):
-//        case let .networkResponse(.login(profile)):
-            // not implented yet
+        case .ui(.alert(.dismissed)):
+            state.alert = nil
             return .none
-        case .networkResponse(.loginAttemptFailed):
-            // not implemented yet
-            return .none
+        case let .networkResponse(networkAction):
+            return reduceNetworkResponse(into: &state, networkAction: networkAction)
         case .delegate:
             // intentional, should be handled by a higher level reducer
             return .none
         }
     }
     
+    private func reduceNetworkResponse(into state: inout State, networkAction: Action.NetworkResponse) -> EffectTask<Action> {
+        switch networkAction {
+        case .login:
+            return .init(value: .delegate(.didLogin))
+        case .loginFailed,
+             .loginFailedInvalidCredentials:
+            state.alert = AlertState {
+                TextState("Login failed (invalid credentials?)")
+            } actions: {
+                ButtonState(role: .cancel) { TextState("OK") }
+            }
+            return .none
+        case .loginFailedNoInternet:
+            state.alert = AlertState {
+                TextState("Login failed. Internet connection appears to be offline.")
+            } actions: {
+                ButtonState(role: .cancel) { TextState("OK") }
+            }
+            return .none
+        }
+    }
+
     private struct Effects {
         static func loginPressed(loginClient: LoginClient, userID: String, apiToken: String) -> EffectTask<Action> {
             return .task {
                 let profile: Profile
                 do {
                     profile = try await loginClient.fetchProfile(userID, apiToken)
-                } catch {
-                    return .networkResponse(.loginAttemptFailed)
+                } catch let error {
+                    guard let loginError = error as? LoginError else {
+                        return .networkResponse(.loginFailed)
+                    }
+                    switch loginError {
+                    case LoginError.noInternet:
+                        return .networkResponse(.loginFailedNoInternet)
+                    case LoginError.authenticationFailed:
+                        return .networkResponse(.loginFailedInvalidCredentials)
+                    case LoginError.requestFailed,
+                         LoginError.responseParsingFailure:
+                        return .networkResponse(.loginFailed)
+                    }
                 }
                 return .networkResponse(.login(profile))
             }

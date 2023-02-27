@@ -12,6 +12,14 @@ struct LoginView: View {
     let store: StoreOf<Login>
     
     var body: some View {
+        contentView
+        .alert(
+            self.store.scope(state: \.alert),
+            dismiss: .ui(.alert(.dismissed))
+        )
+    }
+    
+    private var contentView: some View {
         VStack {
             VStack(spacing: 5.0) {
                 Text("Task Ratchet")
