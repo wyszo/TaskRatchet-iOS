@@ -28,7 +28,7 @@ struct Login: ReducerProtocol {
         
         enum NetworkResponse: Equatable {
             case login(Profile)
-            case loginFail
+            case loginAttemptFailed
         }
         case networkResponse(NetworkResponse)
         
@@ -42,9 +42,7 @@ struct Login: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .ui(.loginPressed):
-            // not implented yet
-            // implement network request as a side-effect
-            return .none
+            return Effects.loginPressed(loginClient: loginClient, userID: state.userID, apiToken: state.apiToken)
         case let .ui(.userIdChanged(userID)):
             state.userID = userID
             return .none
@@ -55,7 +53,7 @@ struct Login: ReducerProtocol {
 //        case let .networkResponse(.login(profile)):
             // not implented yet
             return .none
-        case .networkResponse(.loginFail):
+        case .networkResponse(.loginAttemptFailed):
             // not implemented yet
             return .none
         case .delegate:
@@ -65,9 +63,14 @@ struct Login: ReducerProtocol {
     }
     
     private struct Effects {
-        static func loginPressed(loginClient: LoginClient, userID: String, apiToken: String) async -> EffectTask<Action> {
+        static func loginPressed(loginClient: LoginClient, userID: String, apiToken: String) -> EffectTask<Action> {
             return .task {
-                let profile = try await loginClient.fetchProfile(userID, apiToken)
+                let profile: Profile
+                do {
+                    profile = try await loginClient.fetchProfile(userID, apiToken)
+                } catch {
+                    return .networkResponse(.loginAttemptFailed)
+                }
                 return .networkResponse(.login(profile))
             }
         }
