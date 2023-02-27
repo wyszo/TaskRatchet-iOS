@@ -34,10 +34,3 @@ struct Root: ReducerProtocol {
         }
     }
 }
-
-extension LoginClient {
-    static let live = Self { userID, apiToken in
-        // not implemented yet
-        return false
-    }
-}

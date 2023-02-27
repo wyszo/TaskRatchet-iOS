@@ -8,14 +8,6 @@
 import Foundation
 import ComposableArchitecture
 
-struct LoginClient {
-    typealias FetchProfileType = (_ userID: String, _ apiToken: String) async -> Bool
-    // TODO: return Profile model
-    // TODO: model errors properly and make it into a throwing call
-    
-    let fetchProfile: FetchProfileType
-}
-
 struct Login: ReducerProtocol {
     let loginClient: LoginClient
 
@@ -35,7 +27,8 @@ struct Login: ReducerProtocol {
         case ui(UIAction)
         
         enum NetworkResponse: Equatable {
-            case login
+            case login(Profile)
+            case loginFail
         }
         case networkResponse(NetworkResponse)
         
@@ -59,11 +52,24 @@ struct Login: ReducerProtocol {
             state.apiToken = token
             return .none
         case .networkResponse(.login):
+//        case let .networkResponse(.login(profile)):
             // not implented yet
+            return .none
+        case .networkResponse(.loginFail):
+            // not implemented yet
             return .none
         case .delegate:
             // intentional, should be handled by a higher level reducer
             return .none
+        }
+    }
+    
+    private struct Effects {
+        static func loginPressed(loginClient: LoginClient, userID: String, apiToken: String) async -> EffectTask<Action> {
+            return .task {
+                let profile = try await loginClient.fetchProfile(userID, apiToken)
+                return .networkResponse(.login(profile))
+            }
         }
     }
 }

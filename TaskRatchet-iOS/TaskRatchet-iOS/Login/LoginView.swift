@@ -71,5 +71,12 @@ struct LoginView_Previews: PreviewProvider {
 }
 
 extension LoginClient {
-    static let mock = Self { _, _ in return false }
+    static let mock = Self { _, _ in
+        return .init(
+            id: "id",
+            name: "name",
+            email: "email",
+            timezone: "timezone"
+        )
+    }
 }
