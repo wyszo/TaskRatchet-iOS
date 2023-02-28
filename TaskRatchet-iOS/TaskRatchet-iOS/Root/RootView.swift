@@ -29,6 +29,10 @@ struct RootView: View {
                     //        store: self.store.scope(state:action:)
                     //    )
                     // )
+                    
+                    // not implemented yet
+                    // (if state.addTask...)
+                    // AddTaskView
                 }
             } else {
                 LoginView(

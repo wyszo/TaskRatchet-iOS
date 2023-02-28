@@ -17,6 +17,7 @@ struct TaskListView: View {
                 ForEach(viewStore.tasks, id: \.id) { task in
                     Text(task.task)
                 }
+                Button("New task") { viewStore.send(.delegate(.didTapCreateNewTask)) }
             }
             .onAppear {
                 // TODO: get rid of this

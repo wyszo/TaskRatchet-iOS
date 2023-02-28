@@ -15,10 +15,7 @@ struct TaskListClient {
     let loadCredentials: LoadCredentialsType
 }
 
-enum TaskListClientError: Error {
-    case requestFailed
-    case responseParsingFailed
-}
+typealias TaskListClientError = NetworkResponseError
 
 extension TaskListClient {
     static let live = Self(

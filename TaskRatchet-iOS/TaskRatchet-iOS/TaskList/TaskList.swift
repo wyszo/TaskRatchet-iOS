@@ -38,6 +38,7 @@ struct TaskList: ReducerProtocol {
         // public interface
         enum DelegateAction: Equatable {
             case didTapTask(Task)
+            case didTapCreateNewTask
         }
         case delegate(DelegateAction)
     }
