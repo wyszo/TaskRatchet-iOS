@@ -23,7 +23,7 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 - Prepping for coding
 	- (in progress) Put a UX mock together (using draw.io)
 	- (in progress, mostly done) Put an API mock together (static json files; started)
-	- Put the repo on GitHub
+	- #done Put the repo on GitHub
 	- #done Wiring TCA library
 	- #done Creating a sample SwiftUI project with a preview
 
@@ -34,6 +34,7 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 	- completing a task
 	- filtering main tasks list: pending/complete/expired / not completed / due today 
 	- editing a task
+	- adding a new task
 	- profile info
 	- local notifications: reminders + notifications settings (on/off, minutes before)
 	- safely persisting login information between app launches (keychain?)
@@ -56,6 +57,55 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 #### Full version
 - Info button (gear icon) showing an alert with app version, server info (URL) and server status (online/offline). GitHub page link underneath.
 - 'Launch TaskRatchet website' button that opens TaskRatchet website in Safari.
+
+### Task list 
+
+#### MVP 
+- Task list including:
+	- Checkmark (completes task when pressed)
+	- Task name
+	- Task charge amount
+	- Task due date
+	- Task due time (if task in the past, it should say Xh Xm ago)
+- Fetch all tasks list:
+	- First time the screen appears
+	- When app comes back from background
+	- When one of the task timers expires (+2 sec)
+	- When a new task created (on mobile)
+- Basic task list filtering:
+	- Show due (all pending)
+	- Show due today (pending with due date today)
+	- Show all
+	- (technical detail) action sheet
+ - Create new task button
+
+#### Full version
+- (MVP?) Loading state indicator
+	- When no data and request in flight
+	- When there's data but refreshing 
+	- Top-left corner icon that shows/hides
+- (MVP?) Tapping on a task opens a screen to edit it
+- Fetch all tasks list: 
+	- On pull-to-refresh
+	- When one of the tasks complted
+ - Tasks grouped by due date and section titles by date
+-  Help button
+	- TBD: pressing probably redirects to web help?
+- Filter the tasks like on web
+	- TODO: rethink that
+	- Pending on/off
+	- Complete on/off
+	- Expired on/off
+	- Today's tasks only
+
+#### Improvement ideas
+- Implement reachability warning bar (when internet connection drops)
+
+### Task Detail
+
+#### MVP
+
+#### Full
 
 ## Landscape
 - A wiki-style webpage for TaskRatched linking useful resources
@@ -137,6 +187,7 @@ Currently using Wireframe.cc for generic overview and Mockplus for screen detail
 	- Pair-programming 
 
 ## Changelog 
+- 2023.02.28: Main task list wireframes (MVP and full).
 - 2023.02.27: Making GET me network request, login alerts handling and credentials persistence. Prepopulating login fields when previous login successful. Fetching list of all tasks and listing their titles.
 - 2023.02.26: Extended wireframe mockup. Made login screen wireframes (full & MVP version). Exteded `.gitignore` file. Xcode project template added.
 - 2023.02.24: Added Api spec and Static mock json files. Tested the API responses. Created a hoppscotch API testing collection. Added simple UX wireframes.
