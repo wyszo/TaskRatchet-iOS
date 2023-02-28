@@ -104,8 +104,26 @@ For making meeting deadlines a little bit more pleasant (and feel less like a gr
 ### Task Detail
 
 #### MVP
+- New task screen mode
+	- Navbar with 'Cancel' and 'Save'
+	- 'Save' button inactive until all fields filled in
+	- Date and time picker component on pressing 'pick date/time'
+	- Stakes field defaulting to $5
 
 #### Full
+- Edit task screen mode
+	- Task name not editable
+	- 'Discard changes' instead of 'Cancel' in the navbar
+	- If no changes (or changes equivalent to currently saved task data), 'Save' button inactive
+	 - Date & time validation (can't be in the past)
+ - New task screen mode
+	 - Due date prepopulated with now + 7 days
+	 - Due time prepopulated with current time
+	 - Stakes +1, -1 buttons
+	 - Date & time validation (can't be in the past)
+	 - 'Change timezone' button
+- ? (timezone help) button
+	- Linking to a website with explanation, just like on web
 
 ## Landscape
 - A wiki-style webpage for TaskRatched linking useful resources
@@ -187,7 +205,7 @@ Currently using Wireframe.cc for generic overview and Mockplus for screen detail
 	- Pair-programming 
 
 ## Changelog 
-- 2023.02.28: Main task list wireframes (MVP and full).
+- 2023.02.28: Main task list, add task, edit wireframes (MVP and full). Functional requirements breakdown extended.
 - 2023.02.27: Making GET me network request, login alerts handling and credentials persistence. Prepopulating login fields when previous login successful. Fetching list of all tasks and listing their titles.
 - 2023.02.26: Extended wireframe mockup. Made login screen wireframes (full & MVP version). Exteded `.gitignore` file. Xcode project template added.
 - 2023.02.24: Added Api spec and Static mock json files. Tested the API responses. Created a hoppscotch API testing collection. Added simple UX wireframes.
