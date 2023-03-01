@@ -13,7 +13,16 @@ struct Root: ReducerProtocol {
     struct State: Equatable {
         var login = Login.State()
         var taskList = TaskList.State()
+        
+        // TODO: merge that state with the Route...
         var addTask: AddTask.State? = nil
+        
+        enum LoggedInRoute: Equatable {
+            case none
+            case addTask
+        }
+        var route: LoggedInRoute = .none
+
         var loggedIn = false
     }
     
@@ -21,6 +30,8 @@ struct Root: ReducerProtocol {
         case login(Login.Action)
         case taskList(TaskList.Action)
         case addTask(AddTask.Action)
+
+        case navigateTo(State.LoggedInRoute?)
     }
 
     var body: some ReducerProtocol<State, Action> {
