@@ -17,8 +17,23 @@ typealias AddTaskClientError = NetworkResponseError
 extension AddTaskClient {
     static let live = Self(
         addTask: { newTask, credentials in
-            // Not implemented yet
-            return Task.sample
+            let (data, response): (Data, URLResponse)
+            do {
+                (data, response) = try await URLSession.shared.data(
+                    for: API.authenticatedRequestFor(.addNewTask, credentials: credentials)
+                )
+            } catch let error {
+                // TODO: better error handling (generalise from LoginClient implementation)
+                throw AddTaskClientError.requestFailed
+            }
+
+            let task: Task
+            do {
+                task = try JSONDecoder().decode(Task.self, from: data)
+            } catch {
+                throw AddTaskClientError.responseParsingFailed
+            }
+            return task
         }
     )
 }

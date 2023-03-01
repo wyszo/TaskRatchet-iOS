@@ -23,7 +23,7 @@ extension TaskListClient {
             let (data, response): (Data, URLResponse)
             do {
                 (data, response) = try await URLSession.shared.data(
-                    for: API.authenticatedRequestFor(.allTasks,
+                    for: API.authenticatedRequestFor(.fetchAllTasks,
                          userID: userID,
                          apiToken: apiToken
                     )

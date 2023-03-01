@@ -35,7 +35,7 @@ extension LoginClient {
                 let quickTimeoutSession = URLSession(configuration: config)
 
                 (data, response) = try await quickTimeoutSession.data(
-                    for: API.authenticatedRequestFor(.profile,
+                    for: API.authenticatedRequestFor(.fetchProfile,
                         userID: userID,
                         apiToken: apiToken
                     )
