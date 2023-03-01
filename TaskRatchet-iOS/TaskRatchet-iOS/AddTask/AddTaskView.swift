@@ -13,7 +13,35 @@ struct AddTaskView: View {
     
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            Text("AddTask View")
+            VStack {
+                TextField("Task name",
+                    text: viewStore.binding(
+                      get: \.newTask.task,
+                      send: { .ui(.taskNameChanged($0)) }
+                    )
+                )
+                TextField("Stakes - cents:",
+                    text: viewStore.binding(
+                        get: { String($0.newTask.cents) },
+                        send: { .ui(.stakesChanged($0)) }
+                    )
+                )
+                Text("Due date format: DD/MM/YYYY, HH:MMPM")
+                Text("For example: 3/25/2023, 11:59PM")
+                TextField("Due date",
+                    text: viewStore.binding(
+                        get: \.newTask.due,
+                        send: { .ui(.dueDateChanged($0)) }
+                    )
+                )
+                Text("Timezone: ")
+            }
+            .padding()
+            .toolbar {
+                Button("Save") {
+                    viewStore.send(.ui(.saveButtonPressed))
+                }
+            }
         }
     }
 }

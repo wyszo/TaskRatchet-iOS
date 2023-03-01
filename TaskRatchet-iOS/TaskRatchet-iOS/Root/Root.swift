@@ -55,6 +55,9 @@ struct Root: ReducerProtocol {
                 case .taskList(.delegate(.didTapCreateNewTask)):
                     state.addTask = .init()
                     return .none
+                case .addTask(.delegate(.didSaveNewTask)):
+                    state.addTask = nil
+                    return .none
                 default:
                     return .none
             }

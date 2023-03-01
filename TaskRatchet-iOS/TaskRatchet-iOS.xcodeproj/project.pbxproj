@@ -20,6 +20,7 @@
 		D262680429AE6D37009BFC96 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680329AE6D37009BFC96 /* AddTaskView.swift */; };
 		D262680629AE6D84009BFC96 /* AddTaskClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680529AE6D84009BFC96 /* AddTaskClient.swift */; };
 		D262680929AE6DDE009BFC96 /* NetworkResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680829AE6DDE009BFC96 /* NetworkResponseError.swift */; };
+		D262680B29AFBB07009BFC96 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680A29AFBB07009BFC96 /* Credentials.swift */; };
 		D2EAF0F929AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */; };
 		D2EAF0FB29AB9BFF00E7CADC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */; };
 		D2EAF0FD29AB9C0000E7CADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EAF0FC29AB9C0000E7CADC /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		D262680329AE6D37009BFC96 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		D262680529AE6D84009BFC96 /* AddTaskClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskClient.swift; sourceTree = "<group>"; };
 		D262680829AE6DDE009BFC96 /* NetworkResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseError.swift; sourceTree = "<group>"; };
+		D262680A29AFBB07009BFC96 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D2EAF0F529AB9BFF00E7CADC /* TaskRatchet-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskRatchet-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRatchet_iOSApp.swift; sourceTree = "<group>"; };
 		D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				D262680829AE6DDE009BFC96 /* NetworkResponseError.swift */,
+				D262680A29AFBB07009BFC96 /* Credentials.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				D26267EC29ACC593009BFC96 /* LoginClient.swift in Sources */,
 				D2EAF12D29ABC8B900E7CADC /* Login.swift in Sources */,
 				D26267EF29ACC8BC009BFC96 /* API.swift in Sources */,
+				D262680B29AFBB07009BFC96 /* Credentials.swift in Sources */,
 				D26267F229ACF77F009BFC96 /* DataStore.swift in Sources */,
 				D262680229AE6CF0009BFC96 /* AddTask.swift in Sources */,
 				D262680029AE6C08009BFC96 /* NewTask.swift in Sources */,
