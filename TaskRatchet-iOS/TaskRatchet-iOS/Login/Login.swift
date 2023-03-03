@@ -27,6 +27,7 @@ struct Login: ReducerProtocol {
         enum Internal: Equatable {
             case viewCreated
             case credentialsLoaded(String, String)
+            case tryAutologin
         }
         case _internal(Internal)
         
@@ -89,7 +90,9 @@ struct Login: ReducerProtocol {
         case let .credentialsLoaded(userID, apiToken):
             state.userID = userID
             state.apiToken = apiToken
-            return .none
+            return .init(value: ._internal(.tryAutologin))
+        case .tryAutologin:
+            return .init(value: .ui(.loginPressed))
         }
     }
     

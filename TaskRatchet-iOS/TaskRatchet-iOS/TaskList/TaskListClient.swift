@@ -43,7 +43,11 @@ extension TaskListClient {
 extension TaskListClient {
     static let mock = Self(
         fetchAll: { _, _ in
-            return []
+            return [
+                Task.mocked,
+                Task.mocked,
+                Task.mocked
+            ]
         },
         loadCredentials: { return ("userID", "API-token") }
     )

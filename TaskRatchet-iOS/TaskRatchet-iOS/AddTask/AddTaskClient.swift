@@ -34,20 +34,5 @@ extension AddTaskClient {
 }
 
 extension AddTaskClient {
-    static let mock = Self(addTask: { _, _ in return Task.sample })
-}
-
-private extension Task {
-    static let sample: Self = {
-        return .init(
-            id: "12345",
-            task: "sample",
-            due: "due",
-            due_timestamp: 1000,
-            cents: 500,
-            complete: false,
-            status: "status",
-            timezone: "timezone"
-        )
-    }()
+    static let mock = Self(addTask: { _, _ in return Task.mocked })
 }

@@ -17,3 +17,18 @@ struct Task: Codable, Equatable {
     let status: String
     let timezone: String
 }
+
+extension Task {
+    static let mocked: Self = {
+        return .init(
+            id: "12345",
+            task: "Mow the lawn",
+            due: "27/02/2023, 11:59PM",
+            due_timestamp: 1000,
+            cents: 500,
+            complete: false,
+            status: "pending",
+            timezone: "timezone"
+        )
+    }()
+}
