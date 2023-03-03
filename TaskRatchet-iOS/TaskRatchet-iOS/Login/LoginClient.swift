@@ -17,12 +17,7 @@ struct LoginClient {
     let loadCredentials: LoadCredentialsType
 }
 
-enum LoginClientError: Error {
-    case requestFailed
-    case noInternet
-    case authenticationFailed
-    case responseParsingFailed
-}
+typealias LoginClientError = NetworkResponseError
 
 extension LoginClient {
     static let live = Self(
@@ -40,30 +35,13 @@ extension LoginClient {
                         apiToken: apiToken
                     )
                 )
-            } catch let error {
-                if let urlError = error as? URLError {
-                    if [.notConnectedToInternet,
-                        .networkConnectionLost
-                    ].contains(urlError.code) {
-                        throw LoginClientError.noInternet
-                    }
-                }
+            } catch let urlError as URLError {
+                throw LoginClientError(from: urlError)
+            } catch {
                 throw LoginClientError.requestFailed
             }
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                if httpResponse.statusCode == 403 {
-                    throw LoginClientError.authenticationFailed
-                }
-            }
-
-            let profile: Profile
-            do {
-                profile = try JSONDecoder().decode(Profile.self, from: data)
-            } catch {
-                throw LoginClientError.responseParsingFailed
-            }
-            return profile
+            if let error = LoginClientError(from: response) { throw error }
+            return try data.parse()
         },
         saveCredentials: DataStore.live.saveCredentials,
         loadCredentials: DataStore.live.loadCredentials

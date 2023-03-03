@@ -21,6 +21,7 @@
 		D262680629AE6D84009BFC96 /* AddTaskClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680529AE6D84009BFC96 /* AddTaskClient.swift */; };
 		D262680929AE6DDE009BFC96 /* NetworkResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680829AE6DDE009BFC96 /* NetworkResponseError.swift */; };
 		D262680B29AFBB07009BFC96 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680A29AFBB07009BFC96 /* Credentials.swift */; };
+		D262680D29B2419D009BFC96 /* Data+ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680C29B2419D009BFC96 /* Data+ParseModel.swift */; };
 		D2EAF0F929AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */; };
 		D2EAF0FB29AB9BFF00E7CADC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */; };
 		D2EAF0FD29AB9C0000E7CADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EAF0FC29AB9C0000E7CADC /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		D262680529AE6D84009BFC96 /* AddTaskClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskClient.swift; sourceTree = "<group>"; };
 		D262680829AE6DDE009BFC96 /* NetworkResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseError.swift; sourceTree = "<group>"; };
 		D262680A29AFBB07009BFC96 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		D262680C29B2419D009BFC96 /* Data+ParseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+ParseModel.swift"; sourceTree = "<group>"; };
 		D2EAF0F529AB9BFF00E7CADC /* TaskRatchet-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskRatchet-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRatchet_iOSApp.swift; sourceTree = "<group>"; };
 		D2EAF0FA29AB9BFF00E7CADC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -157,10 +159,19 @@
 		D262680729AE6DCD009BFC96 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				D262680829AE6DDE009BFC96 /* NetworkResponseError.swift */,
+				D262680E29B241BE009BFC96 /* Network */,
 				D262680A29AFBB07009BFC96 /* Credentials.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		D262680E29B241BE009BFC96 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D262680829AE6DDE009BFC96 /* NetworkResponseError.swift */,
+				D262680C29B2419D009BFC96 /* Data+ParseModel.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		D2EAF0EC29AB9BFF00E7CADC = {
@@ -383,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D262680929AE6DDE009BFC96 /* NetworkResponseError.swift in Sources */,
+				D262680D29B2419D009BFC96 /* Data+ParseModel.swift in Sources */,
 				D2EAF0FB29AB9BFF00E7CADC /* LoginView.swift in Sources */,
 				D26267EA29ACC4E6009BFC96 /* Profile.swift in Sources */,
 				D26267FB29AD03D2009BFC96 /* TaskListClient.swift in Sources */,

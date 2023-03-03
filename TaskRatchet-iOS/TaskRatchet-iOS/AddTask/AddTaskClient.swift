@@ -22,18 +22,13 @@ extension AddTaskClient {
                 (data, response) = try await URLSession.shared.data(
                     for: API.authenticatedRequestFor(.addNewTask, credentials: credentials)
                 )
-            } catch let error {
-                // TODO: better error handling (generalise from LoginClient implementation)
+            } catch let error as URLError {
+                throw AddTaskClientError(from: error)
+            } catch {
                 throw AddTaskClientError.requestFailed
             }
-
-            let task: Task
-            do {
-                task = try JSONDecoder().decode(Task.self, from: data)
-            } catch {
-                throw AddTaskClientError.responseParsingFailed
-            }
-            return task
+            if let error = AddTaskClientError(from: response) { throw error }
+            return try data.parse()
         }
     )
 }

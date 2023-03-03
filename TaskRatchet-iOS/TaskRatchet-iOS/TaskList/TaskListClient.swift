@@ -28,18 +28,13 @@ extension TaskListClient {
                          apiToken: apiToken
                     )
                 )
-            } catch let error {
-                // TODO: handle no internet connection
+            } catch let error as URLError {
+                throw TaskListClientError(from: error)
+            } catch {
                 throw TaskListClientError.requestFailed
             }
-            
-            let tasks: [Task]
-            do {
-                tasks = try JSONDecoder().decode([Task].self, from: data)
-            } catch {
-                throw TaskListClientError.responseParsingFailed
-            }
-            return tasks
+            if let error = AddTaskClientError(from: response) { throw error }
+            return try data.parse()
         },
         loadCredentials: DataStore.live.loadCredentials
     )
