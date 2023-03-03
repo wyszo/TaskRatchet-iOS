@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct Credentials {
+struct Credentials: Equatable {
     let userID: String
     let apiToken: String
+}
+
+extension Credentials {
+    static let mock = Self(
+        userID: "mockedUserID",
+        apiToken: "mockedApiToken"
+    )
 }

@@ -89,7 +89,7 @@ struct RootView_Previews: PreviewProvider {
         )
         RootView(
             store: Store(
-                initialState: .init(loggedIn: true),
+                initialState: .init(credentials: .mock),
                 reducer: Root(live: false)
             )
         )

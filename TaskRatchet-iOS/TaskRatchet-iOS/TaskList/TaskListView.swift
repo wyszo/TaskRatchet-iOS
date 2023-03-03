@@ -40,10 +40,6 @@ struct TaskListView: View {
             }
             .padding()
             .frame(maxHeight: .infinity)
-            .onAppear {
-                // TODO: get rid of this
-                viewStore.send(._internal(.load))
-            }
         }
     }
 }
@@ -51,8 +47,12 @@ struct TaskListView: View {
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
         TaskListView(
-            store: Store(initialState: .init(),
-            reducer: TaskList(taskListClient: .mock))
+            store: .init(
+                initialState: .init(
+                    tasks: [.mocked, .mocked, .mocked],
+                    credentials: .mock
+                ),
+                reducer: TaskList(taskListClient: .mock))
         )
     }
 }
@@ -74,6 +74,7 @@ struct TaskCell: View {
                 Button("\u{2610}") {
                     completeCallback()
                 }
+                    .padding(.horizontal, 5.0)
                 VStack(alignment: .leading) {
                     Text(task.task)
                     Text(task.statusLine)

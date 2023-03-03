@@ -20,10 +20,14 @@ struct Root: ReducerProtocol {
         enum LoggedInRoute: Equatable {
             case none
             case addTask
+            // case editTask(Task)
         }
         var route: LoggedInRoute = .none
 
-        var loggedIn = false
+        var credentials: Credentials?
+        var loggedIn: Bool {
+            return credentials != nil
+        }
     }
     
     enum Action: Equatable {
@@ -46,9 +50,11 @@ struct Root: ReducerProtocol {
         }
         Reduce { state, action in
             switch action {
-                case .login(.delegate(.didLogin)):
-                    state.loggedIn = true
-                    return .none
+                case let .login(.delegate(.didLogin(credentials))):
+                    state.credentials = credentials
+                    return .init(value:
+                        .taskList(._internal(.credentialsLoaded(credentials)))
+                    )
                 case .taskList(.delegate(.didTapEditTask)):
                     // Not implemented yet
                     return .none

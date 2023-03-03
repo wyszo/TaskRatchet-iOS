@@ -12,7 +12,6 @@ struct TaskListClient {
     typealias LoadCredentialsType = () -> (String, String)
     
     let fetchAll: FetchAllType
-    let loadCredentials: LoadCredentialsType
 }
 
 typealias TaskListClientError = NetworkResponseError
@@ -35,8 +34,7 @@ extension TaskListClient {
             }
             if let error = AddTaskClientError(from: response) { throw error }
             return try data.parse()
-        },
-        loadCredentials: DataStore.live.loadCredentials
+        }
     )
 }
 
@@ -48,7 +46,6 @@ extension TaskListClient {
                 Task.mocked,
                 Task.mocked
             ]
-        },
-        loadCredentials: { return ("userID", "API-token") }
+        }
     )
 }

@@ -12,16 +12,18 @@ struct TaskList: ReducerProtocol {
     let taskListClient: TaskListClient
     
     struct State: Equatable {
-        var tasks: [Task] = []
-        
-        fileprivate var userID: String = ""
-        fileprivate var apiToken: String = ""
+        var tasks: [Task]
+        fileprivate var credentials: Credentials?
+ 
+        init(tasks: [Task]? = nil, credentials: Credentials? = nil) {
+            self.tasks = tasks ?? []
+            self.credentials = credentials
+        }
     }
     
     enum Action: Equatable {
         enum Internal: Equatable {
-            case load
-            case credentialsLoaded(String, String)
+            case credentialsLoaded(Credentials)
         }
         case _internal(Internal)
         
@@ -68,40 +70,27 @@ struct TaskList: ReducerProtocol {
     
     private func reduceInternal(into state: inout State, internalAction: Action.Internal) -> EffectTask<Action> {
         switch internalAction {
-        case .load:
-            return Effects.loadCredentials(taskListClient: taskListClient)
-        case let .credentialsLoaded(userID, apiToken):
-            state.userID = userID
-            state.apiToken = apiToken
+        case let .credentialsLoaded(credentials):
+            state.credentials = credentials
             return Effects.loadTasks(
                 taskListClient: taskListClient,
-                userID: state.userID,
-                apiToken: state.apiToken
+                credentials: credentials
             )
         }
     }
 }
 
 private struct Effects {
-    static func loadTasks(taskListClient: TaskListClient, userID: String, apiToken: String) -> EffectTask<TaskList.Action> {
+    static func loadTasks(taskListClient: TaskListClient, credentials: Credentials) -> EffectTask<TaskList.Action> {
         return .task {
             let tasks: [Task]
             do {
-                tasks = try await taskListClient.fetchAll(userID, apiToken)
+                tasks = try await taskListClient.fetchAll(credentials.userID, credentials.apiToken)
             } catch {
                 // TODO: implement better error handling
                 return .networkResponse(.loadingFailed)
             }
             return .networkResponse(.loaded(tasks))
-        }
-    }
-
-    static func loadCredentials(taskListClient: TaskListClient) -> EffectTask<TaskList.Action> {
-        return .task {
-            let (userID, apiToken) = taskListClient.loadCredentials()
-            return ._internal(
-                .credentialsLoaded(userID, apiToken)
-            )
         }
     }
 }

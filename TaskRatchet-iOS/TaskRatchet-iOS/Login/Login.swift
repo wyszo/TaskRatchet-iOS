@@ -53,7 +53,7 @@ struct Login: ReducerProtocol {
         
         // public interface
         enum DelegateAction: Equatable {
-            case didLogin
+            case didLogin(Credentials)
         }
         case delegate(DelegateAction)
     }
@@ -99,7 +99,12 @@ struct Login: ReducerProtocol {
     private func reduceNetworkResponse(into state: inout State, networkAction: Action.NetworkResponse) -> EffectTask<Action> {
         switch networkAction {
         case .login:
-            return .init(value: .delegate(.didLogin))
+            return .init(value:
+                .delegate(.didLogin(
+                    Credentials(userID: state.userID, apiToken: state.apiToken)
+                    )
+                )
+            )
         case .loginFailed,
              .loginFailedInvalidCredentials:
             state.alert = AlertState {
