@@ -26,6 +26,8 @@ struct TaskList: ReducerProtocol {
         case _internal(Internal)
         
         enum UI: Equatable {
+            case didTapCompleteTask(Task)
+            case didTapEditTask(Task)
         }
         case ui(UI)
         
@@ -37,27 +39,21 @@ struct TaskList: ReducerProtocol {
         
         // public interface
         enum DelegateAction: Equatable {
-            case didTapTask(Task)
             case didTapCreateNewTask
+            case didTapCompleteTask(Task)
+            case didTapEditTask(Task)
         }
         case delegate(DelegateAction)
     }
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
-        // TODO: split to a separate internal reducer
-        case ._internal(.load):
-            return Effects.loadCredentials(taskListClient: taskListClient)
-        case let ._internal(.credentialsLoaded(userID, apiToken)):
-            state.userID = userID
-            state.apiToken = apiToken
-            return Effects.loadTasks(
-                taskListClient: taskListClient,
-                userID: state.userID,
-                apiToken: state.apiToken
-            )
-        case .ui:
-            return .none
+        case let ._internal(internalAction):
+            return reduceInternal(into: &state, internalAction: internalAction)
+        case let .ui(.didTapEditTask(task)):
+            return .init(value: .delegate(.didTapEditTask(task)))
+        case let .ui(.didTapCompleteTask(task)):
+            return .init(value: .delegate(.didTapCompleteTask(task)))
         case let .networkResponse(.loaded(tasks)):
             state.tasks = tasks
             return .none
@@ -65,8 +61,23 @@ struct TaskList: ReducerProtocol {
             // not implemented yet
             return .none
         case .delegate:
-            // handled externally, from the higher level reducer
+            // handled externally, from a higher level reducer
             return .none
+        }
+    }
+    
+    private func reduceInternal(into state: inout State, internalAction: Action.Internal) -> EffectTask<Action> {
+        switch internalAction {
+        case .load:
+            return Effects.loadCredentials(taskListClient: taskListClient)
+        case let .credentialsLoaded(userID, apiToken):
+            state.userID = userID
+            state.apiToken = apiToken
+            return Effects.loadTasks(
+                taskListClient: taskListClient,
+                userID: state.userID,
+                apiToken: state.apiToken
+            )
         }
     }
 }

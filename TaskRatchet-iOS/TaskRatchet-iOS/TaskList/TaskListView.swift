@@ -15,8 +15,20 @@ struct TaskListView: View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             VStack(alignment: .leading) {
                 ScrollView(.vertical) {
-                    ForEach(viewStore.tasks, id: \.id) {
-                        TaskCell(task: $0)
+                    ForEach(viewStore.tasks, id: \.id) { task in
+                        TaskCell(
+                            task: task,
+                            completeCallback: {
+                                viewStore.send(
+                                    .ui(.didTapCompleteTask(task))
+                                )
+                            },
+                            editCallback: {
+                                viewStore.send(
+                                    .ui(.didTapEditTask(task))
+                                )
+                            }
+                        )
                     }
                 }
                 Spacer()
@@ -51,13 +63,23 @@ private extension Task {
     }
 }
 
-private struct TaskCell: View {
+struct TaskCell: View {
     let task: Task
+    let completeCallback: () -> ()
+    let editCallback: () -> ()
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text(task.task)
-            Text(task.statusLine)
-                .foregroundColor(.gray)
+            HStack {
+                Button("\u{2610}") {
+                    completeCallback()
+                }
+                VStack(alignment: .leading) {
+                    Text(task.task)
+                    Text(task.statusLine)
+                        .foregroundColor(.gray)
+                }
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(10.0)

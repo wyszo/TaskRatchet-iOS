@@ -49,7 +49,10 @@ struct Root: ReducerProtocol {
                 case .login(.delegate(.didLogin)):
                     state.loggedIn = true
                     return .none
-                case .taskList(.delegate(.didTapTask)):
+                case .taskList(.delegate(.didTapEditTask)):
+                    // Not implemented yet
+                    return .none
+                case .taskList(.delegate(.didTapCompleteTask)):
                     // Not implemented yet
                     return .none
                 case .taskList(.delegate(.didTapCreateNewTask)):
