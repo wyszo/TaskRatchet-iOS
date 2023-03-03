@@ -13,10 +13,11 @@ struct LoginView: View {
     
     var body: some View {
         contentView
-        .alert(
-            self.store.scope(state: \.alert),
-            dismiss: .ui(.alert(.dismissed))
-        )
+            .frame(maxHeight: .infinity)
+            .alert(
+                self.store.scope(state: \.alert),
+                dismiss: .ui(.alert(.dismissed))
+            )
     }
     
     private var contentView: some View {
@@ -65,6 +66,8 @@ struct LoginView: View {
                         .opacity(viewStore.state.networkIndicator ? 1 : 0)
                     Button("Login") { viewStore.send(.ui(.loginPressed)) }
                 }
+
+                Spacer()
             }
         }
         .padding()

@@ -205,7 +205,7 @@ Currently using Wireframe.cc for generic overview and Mockplus for screen detail
 	- Pair-programming 
 
 ## Changelog 
-- 2023.03.03: Error handling standardised and shared between network requests.
+- 2023.03.03: Error handling standardised and shared between network requests. UI improvements.
 - 2023.02.29: Very basic implementation of add task screen and network request.
 - 2023.02.28: Main task list, add task, edit wireframes (MVP and full). Functional requirements breakdown extended. Started implementing 'Add Task' screen.
 - 2023.02.27: Making GET me network request, login alerts handling and credentials persistence. Prepopulating login fields when previous login successful. Fetching list of all tasks and listing their titles.

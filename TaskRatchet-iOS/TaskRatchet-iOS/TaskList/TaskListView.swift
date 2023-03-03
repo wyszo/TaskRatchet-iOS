@@ -17,8 +17,15 @@ struct TaskListView: View {
                 ForEach(viewStore.tasks, id: \.id) { task in
                     Text(task.task)
                 }
-                Button("New task") { viewStore.send(.delegate(.didTapCreateNewTask)) }
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button("\u{3289} New task") { viewStore.send(.delegate(.didTapCreateNewTask)) }
+                        .padding(.trailing)
+                }
+                .padding()
             }
+            .frame(maxHeight: .infinity)
             .onAppear {
                 // TODO: get rid of this
                 viewStore.send(._internal(.load))

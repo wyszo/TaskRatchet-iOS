@@ -20,12 +20,14 @@ struct AddTaskView: View {
                       send: { .ui(.taskNameChanged($0)) }
                     )
                 )
+                    .textFieldStyle(.roundedBorder)
                 TextField("Stakes - cents:",
                     text: viewStore.binding(
                         get: { String($0.newTask.cents) },
                         send: { .ui(.stakesChanged($0)) }
                     )
                 )
+                    .textFieldStyle(.roundedBorder)
                 Text("Due date format: DD/MM/YYYY, HH:MMPM")
                 Text("For example: 3/25/2023, 11:59PM")
                 TextField("Due date",
@@ -34,8 +36,11 @@ struct AddTaskView: View {
                         send: { .ui(.dueDateChanged($0)) }
                     )
                 )
+                    .textFieldStyle(.roundedBorder)
                 Text("Timezone: ")
+                Spacer()
             }
+            .frame(maxHeight: .infinity)
             .padding()
             .toolbar {
                 Button("Save") {
