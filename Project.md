@@ -8,6 +8,10 @@ TaskRatchet (https://taskratchet.com/) is a system to assign financial (negative
 
 For making meeting deadlines a little bit more pleasant (and feel less like a grind), I recommend attaching a negative consequence to not fulfilling a task (that's sorted by using TaskRatchet) but also a postive one (reward) if the deadline is met. Something you wouldn't do otherwise that's pleasant for you (like: treat yourself with something nice - my example would be a cheap PlayStation1 second hand video game, I wouldn't buy otherwise).  
 
+## Note
+
+Official project repos are now archived on GitHub. As of now the web app is still working, but it's possible I'll need to host it myself at some point if the main site goes down. 
+
 ## Roadmap & tasks breakdown
 
 - Researching background 

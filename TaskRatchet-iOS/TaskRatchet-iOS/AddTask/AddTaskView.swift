@@ -50,3 +50,16 @@ struct AddTaskView: View {
         }
     }
 }
+
+// MARK: - Previews
+
+struct AddTaskViewPreview: PreviewProvider {
+    static var previews: some View {
+        AddTaskView(
+            store: .init(
+                initialState: AddTask.State.init(),
+                reducer: AddTask(addTaskClient: .mock)
+            )
+        )
+    }
+}

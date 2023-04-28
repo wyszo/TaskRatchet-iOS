@@ -10,7 +10,11 @@ import SwiftUI
 
 struct AddTask: ReducerProtocol {
     let addTaskClient: AddTaskClient
-    
+
+    init(addTaskClient: AddTaskClient) {
+        self.addTaskClient = addTaskClient
+    }
+
     struct State: Equatable {
         var newTask = NewTask()
     }
