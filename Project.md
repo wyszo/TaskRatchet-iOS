@@ -14,15 +14,15 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 
 ## Roadmap & tasks breakdown
 
-- Researching background 
-	#done Research existing Alternatives
-		#done Check online if there are any alternative iOS apps being developped
+- Researching background (done)
+	- #done Research existing Alternatives
+		- #done Check online if there are any alternative iOS apps being developped
 				- Result: nope, no direct alternatives using TaskRatchet. There might be some for different tools (like StikK for example), but not TaskRatchet.
-		#done Checked: Google, GitHub, Search GitHub: TaskRatchet, YouTube, Search Beeminder forums: TaskRatchet, Search Twitter: TaskRatchet
-	#done Playing with their Python API tool to see how it works and understand it beter (create a new task and update it, execute all the other erequests)
-	#task Research Task Ratchet API
-		#done Write down Task Ratchet API spec (that's currently up) and brief documentation
-		#done Create a Postman (or alternative tool) Collection docummenting & testing that API
+		- #done Checked: Google, GitHub, Search GitHub: TaskRatchet, YouTube, Search Beeminder forums: TaskRatchet, Search Twitter: TaskRatchet
+	- #done Playing with their Python API tool to see how it works and understand it beter (create a new task and update it, execute all the other erequests)
+	- #done Research Task Ratchet API
+		- #done Write down Task Ratchet API spec (that's currently up) and brief documentation
+		- #done Create a Postman (or alternative tool) Collection documenting & testing that API
 
 - Prepping for coding
 	- (in progress) Put a UX mock together (using draw.io)
@@ -52,6 +52,7 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 ### Login screen
 
 #### MVP
+
 - Title (Task Ratchet) & Subtitle (Unofficial mobile client)
 - Info text underneath (no clickable elements). For copy see 'Login-MVP.png' file
 - UserID & API Token fields
@@ -59,12 +60,14 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 - (stretch) Login button inactive until both UserID & API Token fileds contain > 1 character
 
 #### Full version
+
 - Info button (gear icon) showing an alert with app version, server info (URL) and server status (online/offline). GitHub page link underneath.
 - 'Launch TaskRatchet website' button that opens TaskRatchet website in Safari.
 
 ### Task list 
 
 #### MVP 
+
 - Task list including:
 	- Checkmark (completes task when pressed)
 	- Task name
@@ -84,6 +87,7 @@ Official project repos are now archived on GitHub. As of now the web app is stil
  - Create new task button
 
 #### Full version
+
 - (MVP?) Loading state indicator
 	- When no data and request in flight
 	- When there's data but refreshing 
@@ -103,11 +107,13 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 	- Today's tasks only
 
 #### Improvement ideas
+
 - Implement reachability warning bar (when internet connection drops)
 
 ### Task Detail
 
 #### MVP
+
 - New task screen mode
 	- Navbar with 'Cancel' and 'Save'
 	- 'Save' button inactive until all fields filled in
@@ -115,6 +121,7 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 	- Stakes field defaulting to $5
 
 #### Full
+
 - Edit task screen mode
 	- Task name not editable
 	- 'Discard changes' instead of 'Cancel' in the navbar
@@ -130,6 +137,7 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 	- Linking to a website with explanation, just like on web
 
 ## Landscape
+
 - A wiki-style webpage for TaskRatched linking useful resources
 	- https://docs.taskratchet.com/
 - Development updates
@@ -201,14 +209,17 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 	- Simple to use, but not focused on Mockups, might be more hassle than added value
 
 ## Wireframe tool used
+
 Currently using Wireframe.cc for generic overview and Mockplus for screen details.
 
 ## Process and tooling ideas
+
 - Tools/processes to help with programming
 	- Using GitHub copilot
 	- Pair-programming 
 
 ## Changelog 
+
 - 2023.03.03: Error handling standardised and shared between network requests. Autologin. UI improvements.
 - 2023.02.29: Very basic implementation of add task screen and network request.
 - 2023.02.28: Main task list, add task, edit wireframes (MVP and full). Functional requirements breakdown extended. Started implementing 'Add Task' screen.
