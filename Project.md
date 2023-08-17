@@ -24,9 +24,9 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 		- #done Write down Task Ratchet API spec (that's currently up) and brief documentation
 		- #done Create a Postman (or alternative tool) Collection documenting & testing that API
 
-- Prepping for coding
-	- (in progress) Put a UX mock together (using draw.io)
-	- (in progress, mostly done) Put an API mock together (static json files; started)
+- Prepping for coding (done)
+	- #done Put a UX mock together (using draw.io)
+	- #done Put an API mock together (static json files; started)
 	- #done Put the repo on GitHub
 	- #done Wiring TCA library
 	- #done Creating a sample SwiftUI project with a preview
@@ -34,7 +34,7 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 - Coding: putting it all together
 	- #done setup/intro/login screen: userID + API token
 	- (in progress) fetching and displaying a list of tasks
-	- tapping on one navigates to task details
+	- (in progress) tapping on one navigates to task details
 	- completing a task
 	- filtering main tasks list: pending/complete/expired / not completed / due today 
 	- editing a task
@@ -176,7 +176,8 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 	- Amazin Marvin: recommended todo tool that's focused around productivity, workflows and making things happen.
  - Breaking down projects
 	 - Workflowy: allows you to capture everything, so you can analyze and get a better picture of it.
-	 #task Try out Workflowy
+     - Dynalist: more powerful Workflowy clone
+     - Logseq: alternative to the above
 - Distraction blocking apps
 	- minus.app: works on a system-level. Also: displays current task to focus on (in a floating window).
 	#task Try minus.app 
@@ -185,6 +186,7 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 	 - It's heavily focused on keyboard shortcuts, doesn't require further UI.
 
 ## Simple UX wireframing tools
+
 - Mockplus 
 	- https://www.mockplus.com/free-wireframing-tool/
 	- not just for mobile mockups, but for rapid wireframing/prototyping in general
@@ -217,9 +219,21 @@ Currently using Wireframe.cc for generic overview and Mockplus for screen detail
 - Tools/processes to help with programming
 	- Using GitHub copilot
 	- Pair-programming 
+    
+## Next tasks (todo)
+
+See the 'roadmap and tasks breakdown' section for more high-level view
+
+1. Break remaining work down into trackable tasks
+2. Finish AddTask screen UI work: 
+    2.1. Add labels around stakes (as per wireframes)
+    2.2. Use a due date picker for date selection
+    2.3. Add a due time picker selection
+    2.4. Check what needs to be done for timzone support to work correctly
 
 ## Changelog 
 
+- 2023.08.17: Project.md file updates.
 - 2023.03.03: Error handling standardised and shared between network requests. Autologin. UI improvements.
 - 2023.02.29: Very basic implementation of add task screen and network request.
 - 2023.02.28: Main task list, add task, edit wireframes (MVP and full). Functional requirements breakdown extended. Started implementing 'Add Task' screen.
