@@ -22,6 +22,8 @@ struct AddTaskView: View {
                 )
                     .textFieldStyle(.roundedBorder)
 
+                // Stakes row
+                // TODO: extract to a separate view
                 HStack {
                     Text("Stakes:")
                     TextField("Stakes (dollars):",
@@ -46,18 +48,46 @@ struct AddTaskView: View {
                     }
                         .buttonStyle(.bordered)
                 }
+                
+                // Predefined stakes row
+                // TODO: extract to a separate view
+                HStack{
+                    Spacer()
+                    Group {
+                        Button("$2") {
+                            viewStore.send(.ui(.stakesChanged(cents: 200)))
+                        }
+                        Button("$5") {
+                            viewStore.send(.ui(.stakesChanged(cents: 500)))
+                        }
+                        Button("$10") {
+                            viewStore.send(.ui(.stakesChanged(cents: 1000)))
+                        }
+                    }
+                    .buttonStyle(.bordered)
+                }
 
-                Text("Due date format: DD/MM/YYYY, HH:MMPM")
-                Text("For example: 3/25/2023, 11:59PM")
-
-                TextField("Due date",
-                    text: viewStore.binding(
-                        get: \.newTask.due,
-                        send: { .ui(.dueDateChanged($0)) }
+                // Due date row
+                // TODO: extract this to a separate view
+                // TODO: wire a date picker
+                Group {
+                    Text("Due date format: DD/MM/YYYY, HH:MMPM")
+                    Text("For example: 3/25/2023, 11:59PM")
+                    
+                    TextField("Due date",
+                              text: viewStore.binding(
+                                get: \.newTask.due,
+                                send: { .ui(.dueDateChanged($0)) }
+                              )
                     )
-                )
                     .textFieldStyle(.roundedBorder)
-                Text("Timezone: ")
+                }
+
+                HStack {
+                    // TODO: hide this from the UI
+                    Text("Timezone: ")
+                    Spacer()
+                }
                 Spacer()
             }
             .frame(maxHeight: .infinity)
