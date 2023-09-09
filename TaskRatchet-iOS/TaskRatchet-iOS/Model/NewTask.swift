@@ -24,11 +24,7 @@ struct NewTask: Codable, Equatable {
 }
 
 extension NewTask {
-    var stakesInDolars: Float {
-        (Float)(cents) * 0.01
-    }
-        
-    var stakesInDolarsString: String {
-        "\(cents / 100).\(cents % 100)$"
+    var stakes: MoneyAmount {
+        MoneyAmount(cents: cents)
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D205114F2AAC0AF90094AB38 /* Project.md in Resources */ = {isa = PBXBuildFile; fileRef = D205114E2AAC0AF80094AB38 /* Project.md */; };
+		D20511512AAC0E5E0094AB38 /* MoneyAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20511502AAC0E5E0094AB38 /* MoneyAmount.swift */; };
 		D26267EA29ACC4E6009BFC96 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267E929ACC4E6009BFC96 /* Profile.swift */; };
 		D26267EC29ACC593009BFC96 /* LoginClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267EB29ACC593009BFC96 /* LoginClient.swift */; };
 		D26267EF29ACC8BC009BFC96 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267EE29ACC8BC009BFC96 /* API.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		D205114E2AAC0AF80094AB38 /* Project.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Project.md; path = ../Project.md; sourceTree = "<group>"; };
+		D20511502AAC0E5E0094AB38 /* MoneyAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyAmount.swift; sourceTree = "<group>"; };
 		D26267E929ACC4E6009BFC96 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D26267EB29ACC593009BFC96 /* LoginClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginClient.swift; sourceTree = "<group>"; };
 		D26267EE29ACC8BC009BFC96 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				D26267E929ACC4E6009BFC96 /* Profile.swift */,
 				D26267F829AD01CC009BFC96 /* Task.swift */,
 				D26267FF29AE6C08009BFC96 /* NewTask.swift */,
+				D20511502AAC0E5E0094AB38 /* MoneyAmount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				D2EAF12D29ABC8B900E7CADC /* Login.swift in Sources */,
 				D26267EF29ACC8BC009BFC96 /* API.swift in Sources */,
 				D262680B29AFBB07009BFC96 /* Credentials.swift in Sources */,
+				D20511512AAC0E5E0094AB38 /* MoneyAmount.swift in Sources */,
 				D26267F229ACF77F009BFC96 /* DataStore.swift in Sources */,
 				D262680229AE6CF0009BFC96 /* AddTask.swift in Sources */,
 				D262680029AE6C08009BFC96 /* NewTask.swift in Sources */,

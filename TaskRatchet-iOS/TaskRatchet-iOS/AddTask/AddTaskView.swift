@@ -24,15 +24,14 @@ struct AddTaskView: View {
 
                 HStack {
                     Text("Stakes:")
-                    TextField("Stakes - cents:",
+                    TextField("Stakes (dollars):",
                               text: viewStore.binding(
-                                get: { String($0.newTask.cents) },
-                                send: { .ui(.stakesChanged($0)) }
+                                get: { $0.newTask.stakes.dollarsRoundedDownString },
+                                send: { .ui(.stakesChanged(cents: (Int($0) ?? 0) * 100)) }
                               )
                     )
-                    .textFieldStyle(.roundedBorder)
-                    Text("cents")
-                    Text("= \(viewStore.state.newTask.stakesInDolarsString)")
+                        .textFieldStyle(.roundedBorder)
+                    Text("$")
                 }
 
                 Text("Due date format: DD/MM/YYYY, HH:MMPM")

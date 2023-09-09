@@ -22,7 +22,7 @@ struct AddTask: ReducerProtocol {
     enum Action: Equatable {
         enum UI: Equatable {
             case taskNameChanged(String)
-            case stakesChanged(String)
+            case stakesChanged(cents: Int)
             case dueDateChanged(String)
             case saveButtonPressed
         }
@@ -46,10 +46,8 @@ struct AddTask: ReducerProtocol {
         case let .ui(.taskNameChanged(newName)):
             state.newTask.task = newName
             return .none
-        case let .ui(.stakesChanged(newStakes)):
-            if let stakes = Int(newStakes) {
-                state.newTask.cents = stakes
-            }
+        case let .ui(.stakesChanged(newStakesCents)):
+            state.newTask.cents = newStakesCents
             return .none
         case let .ui(.dueDateChanged(newDate)):
             state.newTask.due = newDate
