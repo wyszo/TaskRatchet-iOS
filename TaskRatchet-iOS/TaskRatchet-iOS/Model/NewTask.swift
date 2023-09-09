@@ -22,3 +22,13 @@ struct NewTask: Codable, Equatable {
         self.cents = cents
     }
 }
+
+extension NewTask {
+    var stakesInDolars: Float {
+        (Float)(cents) * 0.01
+    }
+        
+    var stakesInDolarsString: String {
+        "\(cents / 100).\(cents % 100)$"
+    }
+}

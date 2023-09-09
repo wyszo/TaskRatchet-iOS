@@ -233,6 +233,7 @@ See the 'roadmap and tasks breakdown' section for more high-level view
 
 ## Changelog 
 
+- 2023.09.09: AddTask Stakes field improvements
 - 2023.08.17: Project.md file updates.
 - 2023.03.03: Error handling standardised and shared between network requests. Autologin. UI improvements.
 - 2023.02.29: Very basic implementation of add task screen and network request.
