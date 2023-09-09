@@ -30,8 +30,21 @@ struct AddTaskView: View {
                                 send: { .ui(.stakesChanged(cents: (Int($0) ?? 0) * 100)) }
                               )
                     )
+                        .frame(maxWidth: 50)
+                        .multilineTextAlignment(.trailing)
                         .textFieldStyle(.roundedBorder)
                     Text("$")
+                    Spacer()
+                    
+                    Group {
+                        Button("(-1)") {
+                            viewStore.send(.ui(.stakesIncreased(byCents: -100)))
+                        }
+                        Button("(+1)") {
+                            viewStore.send(.ui(.stakesIncreased(byCents: 100)))
+                        }
+                    }
+                        .buttonStyle(.bordered)
                 }
 
                 Text("Due date format: DD/MM/YYYY, HH:MMPM")
