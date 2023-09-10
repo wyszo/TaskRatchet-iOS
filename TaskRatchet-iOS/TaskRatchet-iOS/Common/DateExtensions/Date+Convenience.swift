@@ -8,6 +8,10 @@
 import Foundation
 
 extension Date {
+    func dateByAddingHours(_ hours: Int) -> Date {
+        Calendar.current.date(byAdding: .hour, value: hours, to: self)!
+    }
+    
     var dateByAddingDay: Date {
         Calendar.current.date(byAdding: .day, value: 1, to: self)!
     }
@@ -22,6 +26,9 @@ extension Date {
 }
 
 extension Date {
+    static var hourFromNow : Date {
+        Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
+    }
     
     static var dayFromNow : Date {
         Calendar.current.date(byAdding: .day, value: 1, to: Date())!

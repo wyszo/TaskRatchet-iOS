@@ -233,7 +233,7 @@ See the 'roadmap and tasks breakdown' section for more high-level view
 
 ## Changelog 
 
-- 2023.09.10: Added a DatePicker to the NewTask, improved NewTask model to operate on dates (instead of strings)
+- 2023.09.10: Added a DatePicker to the NewTask, improved NewTask model to operate on dates (instead of strings), added common due date buttons
 - 2023.09.09: AddTask Stakes field improvements: displaying in $, added -1, +1 buttons, added predefined stakes buttons
 - 2023.08.17: Project.md file updates.
 - 2023.03.03: Error handling standardised and shared between network requests. Autologin. UI improvements.
