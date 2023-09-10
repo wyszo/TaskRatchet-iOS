@@ -24,7 +24,7 @@ struct AddTask: ReducerProtocol {
             case taskNameChanged(String)
             case stakesChanged(cents: Int)
             case stakesIncreased(byCents: Int)
-            case dueDateChanged(String)
+            case dueDateChanged(Date)
             case saveButtonPressed
         }
         case ui(UI)
@@ -54,7 +54,7 @@ struct AddTask: ReducerProtocol {
             state.newTask.cents += difference
             return .none
         case let .ui(.dueDateChanged(newDate)):
-            state.newTask.due = newDate
+            state.newTask.dueDate = newDate
             return .none
         case .ui(.saveButtonPressed):
             // not implemented yet - network request

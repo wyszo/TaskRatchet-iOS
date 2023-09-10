@@ -1,9 +1,11 @@
 # API 
+
 - API spec: https://taskratchet.com/help/api.html
 	- Current version of the API (1) is stable and any breaking changes will be released as a new API version.
 	- I included the following short summary here in case the main page goes down/changes. 
 
  ### Authentication Headers
+ 
  - `X-Taskratchet-Userid` (found in account settings)
  - `X-Taskratchet-Token` (found in account settings)
  - also worth sending: `Content-Type`:  `application/json`
@@ -13,6 +15,7 @@
 - Base URL: `https://api.taskratchet.com/api1/`
 
 #### GET me
+
 - Fetches your profile data.
 - `cards` in response lists your banking cards used for payments
 - Example json response: 
@@ -35,11 +38,13 @@
 ```
 
 #### PUT me 
+
 - Updates your profile
 - Input fields: `name`, `email`, `timezone` (has to be a valid timezone returned from `GET timezones`, `new_password`, `integrations` (object))
 - json response is an updated user object
 
 #### GET me/tasks
+
 - Returns all tasks ever created for the user 
 - No pagination, all resuts returned always
 - `due` is timezone agnostic
@@ -62,12 +67,14 @@
 ```
 
 #### POST me/tasks 
+
 - Allows to create a new task
 - Fields: `task`, `due`, `cents`
 - `due` example: `3/25/2020, 11:59 PM`
 - Response is created task on success
 
 #### GET me/tasks/{task_id}
+
 - Returns a single task details (as an object, not in an array)
 - Example response: 
 ```
@@ -84,6 +91,7 @@
 ```
 
 #### PUT me/tasks/{task_id}
+
 - Updates a task (any fields can be send).
 - Some operations will fail:
 	- Editing task title is forbidden (`task` field)
@@ -92,6 +100,7 @@
 - Note that this endpoint cannot be used to create a new task (the response will be `403`).
 
 #### GET status
+
 - Returns server status, currently just the API internal time
 - Example response:
 ```
@@ -99,6 +108,7 @@
 ```
 
 #### GET timezones
+
 - Returns an array of valid time zones
 - Non authenticated endpoint
 - For an example response see the mock json file

@@ -66,21 +66,20 @@ struct AddTaskView: View {
                     }
                     .buttonStyle(.bordered)
                 }
+                
 
                 // Due date row
                 // TODO: extract this to a separate view
-                // TODO: wire a date picker
                 Group {
-                    Text("Due date format: DD/MM/YYYY, HH:MMPM")
-                    Text("For example: 3/25/2023, 11:59PM")
-                    
-                    TextField("Due date",
-                              text: viewStore.binding(
-                                get: \.newTask.due,
-                                send: { .ui(.dueDateChanged($0)) }
-                              )
-                    )
-                    .textFieldStyle(.roundedBorder)
+                    DatePicker("Due date",
+                               selection: viewStore.binding(
+                                get: \.newTask.dueDate,
+                                send: { .ui(.dueDateChanged($0))}
+                               ))
+                    // TODO: add handy common dates buttons:
+                    //  - day from now
+                    //  - week from now
+                    //  - month from now
                 }
 
                 HStack {
