@@ -77,50 +77,19 @@ struct AddTaskView: View {
                                 send: { .ui(.dueDateChanged($0))}
                                ))
                     
-                    // Common task deadlines: 2h, 4h from now,
+                    // Common task deadlines: 1h, 2h, 4h from now,
                     // day, week, month from now
                     HStack {
-                        Button("In 2h") {
-                            viewStore.send(
-                                .ui(.dueDateChanged(
-                                    .now.dateByAddingHours(2))
-                                )
-                            )
-                        }
-                        Button("In 4h") {
-                            viewStore.send(
-                                .ui(.dueDateChanged(
-                                    .now.dateByAddingHours(4))
-                                )
-                            )
-                        }
+                        DueDateButton(caption: "In 1h", dueDate: .now.dateByAddingHours(1), viewStore: viewStore)
+                        DueDateButton(caption: "In 2h", dueDate: .now.dateByAddingHours(2), viewStore: viewStore)
+                        DueDateButton(caption: "In 4h", dueDate: .now.dateByAddingHours(4), viewStore: viewStore)
 
                         Spacer()
                         
-                        Button("In a day") {
-                            viewStore.send(
-                                .ui(.dueDateChanged(
-                                    .now.dateByAddingDay)
-                                )
-                            )
-                        }
-                        Button("In a week") {
-                            viewStore.send(
-                                .ui(.dueDateChanged(
-                                    .now.dateByAddingWeek)
-                                )
-                            )
-                        }
-                        Button("In a month") {
-                            viewStore.send(
-                                .ui(.dueDateChanged(
-                                    .now.dateByAddingMonth)
-                                )
-                            )
-                        }
+                        DueDateButton(caption: "In a day", dueDate: .now.dateByAddingDay, viewStore: viewStore)
+                        DueDateButton(caption: "In a week", dueDate: .now.dateByAddingWeek, viewStore: viewStore)
+                        DueDateButton(caption: "In a month", dueDate: .now.dateByAddingMonth, viewStore: viewStore)
                     }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.roundedRectangle)
                 }
                 
                 Spacer()
@@ -154,5 +123,30 @@ struct AddTaskViewPreview: PreviewProvider {
                 reducer: AddTask(addTaskClient: .mock)
             )
         )
+    }
+}
+
+// MARK: - Components
+
+private struct DueDateButton: View {
+    
+    let caption: String
+    let dueDate: Date
+    let viewStore: ViewStore<AddTask.State, AddTask.Action>
+    
+    init(caption: String, dueDate: Date, viewStore: ViewStore<AddTask.State, AddTask.Action>) {
+        self.caption = caption
+        self.dueDate = dueDate
+        self.viewStore = viewStore
+    }
+    
+    var body: some View {
+        Button(caption) {
+            viewStore.send(
+                .ui(.dueDateChanged(dueDate))
+            )
+        }
+        .buttonStyle(.bordered)
+        .buttonBorderShape(.roundedRectangle)
     }
 }
