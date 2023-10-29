@@ -64,7 +64,7 @@ struct TaskListView_Previews: PreviewProvider {
 
 private extension Task {
     var statusLine: String {
-        return "\(cents/100)$ * \(due) * \(status)"
+        return "\(cents/100)$ * \(due) * \(status.description)"
     }
 }
 

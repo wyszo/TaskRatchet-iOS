@@ -8,19 +8,56 @@
 import Foundation
 
 struct Task: Codable, Equatable {
+    
+    enum Status: Codable, Equatable {
+        case pending
+        case expired
+        case complete
+        case other(String)
+        
+        var description: String {
+            switch self {
+                case .pending: return "Pending"
+                case .expired: return "Expired"
+                case .complete: return "Completed"
+                case .other(let value): return value
+            }
+        }
+        
+        init(rawValue: String) {
+            let rawValue = rawValue.lowercased()
+            
+            if rawValue == "pending" {
+                self = .pending
+            } else if rawValue == "expired" {
+                self = .expired
+            } else if rawValue == "completed" {
+                self = .complete
+            } else {
+                self = .other(rawValue)
+            }
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            let value = try container.decode(String.self)
+            self = Status(rawValue: value)
+        }
+    }
+    
     let id: String
     let task: String
     let due: String
     let due_timestamp: Int
     let cents: Int
     let complete: Bool
-    let status: String
+    let status: Status
     let timezone: String
 }
 
 extension Task {
     var isPending: Bool {
-        status == "pending"
+        status == .pending
     }
 }
 
@@ -33,7 +70,7 @@ extension Task {
             due_timestamp: 1000,
             cents: 500,
             complete: false,
-            status: "pending",
+            status: .pending,
             timezone: "timezone"
         )
     }()
