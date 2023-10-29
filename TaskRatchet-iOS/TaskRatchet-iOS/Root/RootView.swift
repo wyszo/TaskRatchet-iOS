@@ -36,7 +36,7 @@ struct RootView: View {
                         )
                         
                         // Existing task detail navi link
-                        // Not implemented yet
+                        // TODO: Not implemented yet
                         // NavigationLink(
                         //    "Task Detail",
                         //    destination: TaskDetailView(

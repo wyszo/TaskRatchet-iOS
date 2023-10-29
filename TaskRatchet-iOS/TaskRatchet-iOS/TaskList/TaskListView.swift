@@ -15,7 +15,7 @@ struct TaskListView: View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             VStack(alignment: .leading) {
                 ScrollView(.vertical) {
-                    ForEach(viewStore.tasks, id: \.id) { task in
+                    ForEach(viewStore.filteredTasks, id: \.id) { task in
                         TaskCell(
                             task: task,
                             completeCallback: {
@@ -33,6 +33,11 @@ struct TaskListView: View {
                 }
                 Spacer()
                 HStack {
+                    Button("Filter: \(viewStore.filter.description)") {
+                        viewStore.send(
+                            .ui(.didTapChangeFilter)
+                        )
+                    }
                     Spacer()
                     Button("\u{3289} New task") { viewStore.send(.delegate(.didTapCreateNewTask)) }
                         .padding(.trailing)

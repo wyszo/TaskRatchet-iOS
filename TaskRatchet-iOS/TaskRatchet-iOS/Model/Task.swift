@@ -19,6 +19,12 @@ struct Task: Codable, Equatable {
 }
 
 extension Task {
+    var isPending: Bool {
+        status == "pending"
+    }
+}
+
+extension Task {
     static let mocked: Self = {
         return .init(
             id: "12345",

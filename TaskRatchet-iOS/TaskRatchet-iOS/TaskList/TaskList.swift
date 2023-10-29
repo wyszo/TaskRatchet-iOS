@@ -11,13 +11,51 @@ import SwiftUI
 struct TaskList: ReducerProtocol {
     let taskListClient: TaskListClient
     
+    enum Filter {
+        case all
+        case pendingOnly
+        // TODO: case dueToday
+        
+        var description: String {
+            switch self {
+            case .all:
+                return "All"
+            case .pendingOnly:
+                return "Pending"
+            }
+        }
+    }
+    
     struct State: Equatable {
-        var tasks: [Task]
+        private var tasks: [Task]
+        private(set) var filter: Filter = .all
         fileprivate var credentials: Credentials?
  
-        init(tasks: [Task]? = nil, credentials: Credentials? = nil) {
+        init(tasks: [Task]? = nil, credentials: Credentials? = nil, filter: Filter = .all) {
             self.tasks = tasks ?? []
             self.credentials = credentials
+        }
+        
+        var filteredTasks: [Task] {
+            switch filter {
+            case .all: return tasks
+            case .pendingOnly: return tasks.filter { $0.isPending }
+            }
+        }
+        
+        // MARK: -
+                
+        func filteredToggled() -> State {
+            var newState = self
+            switch filter {
+            case .all: newState.filter = .pendingOnly
+            case .pendingOnly: newState.filter = .all
+            }
+            return newState
+        }
+        
+        func substitutingTasks(_ tasks: [Task]) -> State {
+            State(tasks: tasks, credentials: credentials, filter: filter)
         }
     }
     
@@ -30,6 +68,7 @@ struct TaskList: ReducerProtocol {
         enum UI: Equatable {
             case didTapCompleteTask(Task)
             case didTapEditTask(Task)
+            case didTapChangeFilter
         }
         case ui(UI)
         
@@ -39,7 +78,7 @@ struct TaskList: ReducerProtocol {
         }
         case networkResponse(NetworkResponse)
         
-        // public interface
+        // public interface (actions handled externally)
         enum DelegateAction: Equatable {
             case didTapCreateNewTask
             case didTapCompleteTask(Task)
@@ -57,10 +96,14 @@ struct TaskList: ReducerProtocol {
         case let .ui(.didTapCompleteTask(task)):
             return .init(value: .delegate(.didTapCompleteTask(task)))
         case let .networkResponse(.loaded(tasks)):
-            state.tasks = tasks
+            state = state.substitutingTasks(tasks)
+            return .none
+        case .ui(.didTapChangeFilter):
+            state = state.filteredToggled()
             return .none
         case .networkResponse(.loadingFailed):
-            // not implemented yet
+            // TODO: not implemented yet
+            // TODO: show a toast
             return .none
         case .delegate:
             // handled externally, from a higher level reducer

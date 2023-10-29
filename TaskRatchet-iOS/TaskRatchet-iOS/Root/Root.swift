@@ -56,10 +56,10 @@ struct Root: ReducerProtocol {
                         .taskList(._internal(.credentialsLoaded(credentials)))
                     )
                 case .taskList(.delegate(.didTapEditTask)):
-                    // Not implemented yet
+                    // TODO: Not implemented yet
                     return .none
                 case .taskList(.delegate(.didTapCompleteTask)):
-                    // Not implemented yet
+                    // TODO: Not implemented yet
                     return .none
                 case .taskList(.delegate(.didTapCreateNewTask)):
                     state.addTask = .init()

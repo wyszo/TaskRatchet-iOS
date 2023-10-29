@@ -36,7 +36,7 @@ Official project repos are now archived on GitHub. As of now the web app is stil
 	- (in progress) fetching and displaying a list of tasks
 	- (in progress) tapping on one navigates to task details
 	- completing a task
-	- filtering main tasks list: pending/complete/expired / not completed / due today 
+	- (in progress) filtering main tasks list: pending/complete/expired / not completed / due today 
 	- editing a task
 	- adding a new task
 	- profile info
@@ -225,11 +225,16 @@ Currently using Wireframe.cc for generic overview and Mockplus for screen detail
 See the 'roadmap and tasks breakdown' section for more high-level view
 
 1. Break remaining work down into trackable tasks
-2. Finish AddTask screen UI work: 
-    2.1. Add labels around stakes (as per wireframes)
-    2.2. Use a due date picker for date selection
-    2.3. Add a due time picker selection
-    2.4. Check what needs to be done for timzone support to work correctly
+2. Allow filtering out completed tasks (check the wireframes)
+	2.1. for now just add a button that toggles between `filter: all` and `filter: pending`
+3. Improve tasks list view UI
+	3.1. Implement tasks filtering
+4. Implement handling adding a new task 
+	4.1. make a network request to add new task - is that done? 
+	4.2. refresh the tasks list (based on the network response)
+5. Finish AddTask screen UI work: 
+    5.4. Check what needs to be done for timzone support to work correctly
+
 
 ## Changelog 
 
