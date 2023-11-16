@@ -24,6 +24,8 @@
 		D262680929AE6DDE009BFC96 /* NetworkResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680829AE6DDE009BFC96 /* NetworkResponseError.swift */; };
 		D262680B29AFBB07009BFC96 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680A29AFBB07009BFC96 /* Credentials.swift */; };
 		D262680D29B2419D009BFC96 /* Data+ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262680C29B2419D009BFC96 /* Data+ParseModel.swift */; };
+		D27CF1132B05A7F9007750E6 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CF1122B05A7F9007750E6 /* TaskCell.swift */; };
+		D27CF1152B05A861007750E6 /* TaskCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CF1142B05A861007750E6 /* TaskCellViewModel.swift */; };
 		D2BEFB3A2AAD9B4500FEF75E /* APIDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BEFB392AAD9B4500FEF75E /* APIDateFormatter.swift */; };
 		D2BEFB3D2AAD9BD700FEF75E /* Date+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BEFB3C2AAD9BD700FEF75E /* Date+Convenience.swift */; };
 		D2EAF0F929AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EAF0F829AB9BFF00E7CADC /* TaskRatchet_iOSApp.swift */; };
@@ -74,6 +76,8 @@
 		D262680829AE6DDE009BFC96 /* NetworkResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseError.swift; sourceTree = "<group>"; };
 		D262680A29AFBB07009BFC96 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D262680C29B2419D009BFC96 /* Data+ParseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+ParseModel.swift"; sourceTree = "<group>"; };
+		D27CF1122B05A7F9007750E6 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		D27CF1142B05A861007750E6 /* TaskCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellViewModel.swift; sourceTree = "<group>"; };
 		D2BEFB392AAD9B4500FEF75E /* APIDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDateFormatter.swift; sourceTree = "<group>"; };
 		D2BEFB3C2AAD9BD700FEF75E /* Date+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Convenience.swift"; sourceTree = "<group>"; };
 		D2EAF0F529AB9BFF00E7CADC /* TaskRatchet-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskRatchet-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,7 @@
 		D26267F329AD0168009BFC96 /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				D27CF1112B05A7DF007750E6 /* Cell */,
 				D26267F429AD0191009BFC96 /* TaskList.swift */,
 				D26267F629AD01AC009BFC96 /* TaskListView.swift */,
 				D26267FA29AD03D2009BFC96 /* TaskListClient.swift */,
@@ -182,6 +187,15 @@
 				D262680C29B2419D009BFC96 /* Data+ParseModel.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		D27CF1112B05A7DF007750E6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D27CF1122B05A7F9007750E6 /* TaskCell.swift */,
+				D27CF1142B05A861007750E6 /* TaskCellViewModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		D2BEFB3B2AAD9BBF00FEF75E /* DateExtensions */ = {
@@ -418,6 +432,7 @@
 				D262680D29B2419D009BFC96 /* Data+ParseModel.swift in Sources */,
 				D2EAF0FB29AB9BFF00E7CADC /* LoginView.swift in Sources */,
 				D26267EA29ACC4E6009BFC96 /* Profile.swift in Sources */,
+				D27CF1132B05A7F9007750E6 /* TaskCell.swift in Sources */,
 				D26267FB29AD03D2009BFC96 /* TaskListClient.swift in Sources */,
 				D2BEFB3A2AAD9B4500FEF75E /* APIDateFormatter.swift in Sources */,
 				D262680429AE6D37009BFC96 /* AddTaskView.swift in Sources */,
@@ -432,6 +447,7 @@
 				D262680B29AFBB07009BFC96 /* Credentials.swift in Sources */,
 				D20511512AAC0E5E0094AB38 /* MoneyAmount.swift in Sources */,
 				D26267F229ACF77F009BFC96 /* DataStore.swift in Sources */,
+				D27CF1152B05A861007750E6 /* TaskCellViewModel.swift in Sources */,
 				D262680229AE6CF0009BFC96 /* AddTask.swift in Sources */,
 				D2BEFB3D2AAD9BD700FEF75E /* Date+Convenience.swift in Sources */,
 				D262680029AE6C08009BFC96 /* NewTask.swift in Sources */,

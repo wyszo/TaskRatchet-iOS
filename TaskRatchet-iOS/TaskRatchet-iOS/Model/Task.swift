@@ -19,7 +19,7 @@ struct Task: Codable, Equatable {
             switch self {
                 case .pending: return "Pending"
                 case .expired: return "Expired"
-                case .complete: return "Completed"
+                case .complete: return "Complete"
                 case .other(let value): return value
             }
         }
@@ -31,7 +31,7 @@ struct Task: Codable, Equatable {
                 self = .pending
             } else if rawValue == "expired" {
                 self = .expired
-            } else if rawValue == "completed" {
+            } else if rawValue == "complete" {
                 self = .complete
             } else {
                 self = .other(rawValue)

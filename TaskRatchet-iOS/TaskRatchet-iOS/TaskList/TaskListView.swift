@@ -61,34 +61,3 @@ struct TaskListView_Previews: PreviewProvider {
         )
     }
 }
-
-private extension Task {
-    var statusLine: String {
-        return "\(cents/100)$ * \(due) * \(status.description)"
-    }
-}
-
-struct TaskCell: View {
-    let task: Task
-    let completeCallback: () -> ()
-    let editCallback: () -> ()
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Button("\u{2610}") {
-                    completeCallback()
-                }
-                    .padding(.horizontal, 5.0)
-                VStack(alignment: .leading) {
-                    Text(task.task)
-                    Text(task.statusLine)
-                        .foregroundColor(.gray)
-                }
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(10.0)
-        .border(.gray, width: 1)
-    }
-}
