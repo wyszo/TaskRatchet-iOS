@@ -28,6 +28,12 @@ struct Login: ReducerProtocol {
             case viewCreated
             case credentialsLoaded(String, String)
             case tryAutologin
+            
+            // TODO: move into its own reducer to declutter
+            // login input validation (userID & APIToken fields)
+            case validateLoginInput
+            case loginInputValidationFailed
+            case loginInputValidationSuccess
         }
         case _internal(Internal)
         
@@ -63,8 +69,7 @@ struct Login: ReducerProtocol {
         case let ._internal(internalAction):
             return reduceInternal(into: &state, internalAction: internalAction)
         case .ui(.loginPressed):
-            state.networkIndicator = true
-            return Effects.loginPressed(loginClient: loginClient, userID: state.userID, apiToken: state.apiToken)
+            return .init(value: ._internal(.validateLoginInput))
         case let .ui(.userIdChanged(userID)):
             state.userID = userID
             return .none
@@ -92,7 +97,26 @@ struct Login: ReducerProtocol {
             state.apiToken = apiToken
             return .init(value: ._internal(.tryAutologin))
         case .tryAutologin:
-            return .init(value: .ui(.loginPressed))
+            if state.userID.isEmpty || state.apiToken.isEmpty {
+                return .none
+            } else {
+                return .init(value: .ui(.loginPressed))
+            }
+        case .validateLoginInput:
+            guard !state.userID.isEmpty && !state.apiToken.isEmpty else {
+                return .init(value: ._internal(.loginInputValidationFailed))
+            }
+            return .init(value: ._internal(.loginInputValidationSuccess))
+        case .loginInputValidationFailed:
+            state.alert = AlertState {
+                TextState("Missing login credentials")
+            } actions: {
+                ButtonState(role: .cancel) { TextState("OK") }
+            }
+            return .none
+        case .loginInputValidationSuccess:
+            state.networkIndicator = true
+            return Effects.performLogin(loginClient: loginClient, userID: state.userID, apiToken: state.apiToken)
         }
     }
     
@@ -112,7 +136,7 @@ struct Login: ReducerProtocol {
             } actions: {
                 ButtonState(role: .cancel) { TextState("OK") }
             } message: {
-                TextState("Invalid credentials (?)")
+                TextState("Invalid credentials (or server error)")
             }
             return .none
         case .loginFailedNoInternet:
@@ -128,7 +152,7 @@ struct Login: ReducerProtocol {
     }
 
     private struct Effects {
-        static func loginPressed(loginClient: LoginClient, userID: String, apiToken: String) -> EffectTask<Action> {
+        static func performLogin(loginClient: LoginClient, userID: String, apiToken: String) -> EffectTask<Action> {
             return .task {
                 let profile: Profile
                 do {
