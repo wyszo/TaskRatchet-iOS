@@ -59,7 +59,17 @@ struct API {
     }
 
     static func authenticatedRequestFor(_ endpoint: Endpoint, credentials: Credentials) -> URLRequest {
+        guard endpoint != .addNewTask else {
+            fatalError("API misuse, call `addTaskRequest` method instead")
+        }
+        
         return authenticatedRequestFor(endpoint, userID: credentials.userID, apiToken: credentials.apiToken)
+    }
+    
+    static func addTaskRequest(task: NewTask, credentials: Credentials) -> URLRequest {
+        
+        // TODO: encode task body parameters
+        fatalError("Not imlemented yet: add correct parameters to the network request as per the API spec file")
     }
     
     static func authenticatedRequestFor(_ endpoint: Endpoint, userID: String, apiToken: String) -> URLRequest {

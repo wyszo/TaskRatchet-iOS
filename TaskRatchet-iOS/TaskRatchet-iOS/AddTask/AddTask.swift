@@ -17,9 +17,15 @@ struct AddTask: ReducerProtocol {
 
     struct State: Equatable {
         var newTask = NewTask()
+        var credentials: Credentials?
     }
     
     enum Action: Equatable {
+        enum Internal: Equatable {
+            case credentialsSet(Credentials?)
+        }
+        case _internal(Internal)
+        
         enum UI: Equatable {
             case taskNameChanged(String)
             case stakesChanged(cents: Int)
@@ -44,6 +50,8 @@ struct AddTask: ReducerProtocol {
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
+        case let ._internal(internalAction):
+            return reduceInternal(into: &state, internalAction: internalAction)
         case let .ui(.taskNameChanged(newName)):
             state.newTask.task = newName
             return .none
@@ -57,17 +65,30 @@ struct AddTask: ReducerProtocol {
             state.newTask.dueDate = newDate
             return .none
         case .ui(.saveButtonPressed):
-            // TODO: not implemented yet - network request
-            return .init(value: .delegate(.didSaveNewTask))
+            if let credentials = state.credentials {
+                return Effects.addTask(addTaskClient: addTaskClient, newTask: state.newTask, credentials: credentials)
+            } else {
+                // TODO: no api credentials, show error state
+                return .none
+            }
         case let .networkResponse(.addTaskSuccess(task)):
             let id = task.id
             // TODO: not implemented yet
-            return .none
+            // return .none
+            return .init(value: .delegate(.didSaveNewTask))
         case .networkResponse(.addTaskFailed):
             // TODO: not implemented yet
             return .none
         case .delegate:
             // handled by a higher level reducer
+            return .none
+        }
+    }
+    
+    private func reduceInternal(into state: inout State, internalAction: Action.Internal) -> EffectTask<Action> {
+        switch internalAction {
+        case let .credentialsSet(credentials):
+            state.credentials = credentials
             return .none
         }
     }

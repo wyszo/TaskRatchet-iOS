@@ -19,9 +19,8 @@ extension AddTaskClient {
         addTask: { newTask, credentials in
             let (data, response): (Data, URLResponse)
             do {
-                (data, response) = try await URLSession.shared.data(
-                    for: API.authenticatedRequestFor(.addNewTask, credentials: credentials)
-                )
+                let request = API.addTaskRequest(task: newTask, credentials: credentials)
+                (data, response) = try await URLSession.shared.data(for: request)
             } catch let error as URLError {
                 throw AddTaskClientError(from: error)
             } catch {
