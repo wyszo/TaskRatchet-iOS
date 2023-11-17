@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D205114F2AAC0AF90094AB38 /* Project.md in Resources */ = {isa = PBXBuildFile; fileRef = D205114E2AAC0AF80094AB38 /* Project.md */; };
 		D20511512AAC0E5E0094AB38 /* MoneyAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20511502AAC0E5E0094AB38 /* MoneyAmount.swift */; };
+		D247A0E12B073D8000DE28CA /* TCA-notes.md in Resources */ = {isa = PBXBuildFile; fileRef = D247A0E02B073D7F00DE28CA /* TCA-notes.md */; };
+		D247A0E42B073DAA00DE28CA /* API spec.md in Resources */ = {isa = PBXBuildFile; fileRef = D247A0E22B073DAA00DE28CA /* API spec.md */; };
+		D247A0E52B073DAA00DE28CA /* Various notes.md in Resources */ = {isa = PBXBuildFile; fileRef = D247A0E32B073DAA00DE28CA /* Various notes.md */; };
 		D26267EA29ACC4E6009BFC96 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267E929ACC4E6009BFC96 /* Profile.swift */; };
 		D26267EC29ACC593009BFC96 /* LoginClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267EB29ACC593009BFC96 /* LoginClient.swift */; };
 		D26267EF29ACC8BC009BFC96 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26267EE29ACC8BC009BFC96 /* API.swift */; };
@@ -61,6 +64,9 @@
 /* Begin PBXFileReference section */
 		D205114E2AAC0AF80094AB38 /* Project.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Project.md; path = ../Project.md; sourceTree = "<group>"; };
 		D20511502AAC0E5E0094AB38 /* MoneyAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyAmount.swift; sourceTree = "<group>"; };
+		D247A0E02B073D7F00DE28CA /* TCA-notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "TCA-notes.md"; path = "../TCA-notes.md"; sourceTree = "<group>"; };
+		D247A0E22B073DAA00DE28CA /* API spec.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "API spec.md"; path = "../API spec.md"; sourceTree = "<group>"; };
+		D247A0E32B073DAA00DE28CA /* Various notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "Various notes.md"; path = "../Various notes.md"; sourceTree = "<group>"; };
 		D26267E929ACC4E6009BFC96 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D26267EB29ACC593009BFC96 /* LoginClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginClient.swift; sourceTree = "<group>"; };
 		D26267EE29ACC8BC009BFC96 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -210,7 +216,10 @@
 		D2EAF0EC29AB9BFF00E7CADC = {
 			isa = PBXGroup;
 			children = (
+				D247A0E22B073DAA00DE28CA /* API spec.md */,
+				D247A0E32B073DAA00DE28CA /* Various notes.md */,
 				D205114E2AAC0AF80094AB38 /* Project.md */,
+				D247A0E02B073D7F00DE28CA /* TCA-notes.md */,
 				D2EAF0F729AB9BFF00E7CADC /* TaskRatchet-iOS */,
 				D2EAF10929AB9C0000E7CADC /* TaskRatchet-iOSTests */,
 				D2EAF11329AB9C0000E7CADC /* TaskRatchet-iOSUITests */,
@@ -402,8 +411,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2EAF10129AB9C0000E7CADC /* Preview Assets.xcassets in Resources */,
+				D247A0E12B073D8000DE28CA /* TCA-notes.md in Resources */,
 				D2EAF0FD29AB9C0000E7CADC /* Assets.xcassets in Resources */,
+				D247A0E52B073DAA00DE28CA /* Various notes.md in Resources */,
 				D205114F2AAC0AF90094AB38 /* Project.md in Resources */,
+				D247A0E42B073DAA00DE28CA /* API spec.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

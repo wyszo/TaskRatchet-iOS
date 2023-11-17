@@ -238,6 +238,9 @@ See the 'roadmap and tasks breakdown' section for more high-level view
 
 ## Changelog 
 
+This is a duplication from git repo, but let's me visualise progress better - with a slightly more high-level view than the git repo provides.
+
+- 2023.11.18: 
 - 2023.11.16: Updated task icons on the task list depending on state, moved TaskCell code around. Added validation on login fields.
 - 2023.10.29: Implemented the first version of tasks filtering, task status parsing updates
 - 2023.09.10: Added a DatePicker to the NewTask, improved NewTask model to operate on dates (instead of strings), added common due date buttons
